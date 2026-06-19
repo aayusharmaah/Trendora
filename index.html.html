@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trendora – Discover India's Top Content Creators | Marketing, Tech, Finance, HR, Operations, Product Management</title>
+<meta name="description" content="Trendora ranks India's top YouTube and Instagram content creators across Marketing, Tech, Finance, HR, Operations and Product Management. Find the right creator for any domain in one place.">
+<meta name="keywords" content="Indian content creators, Indian YouTube influencers, Indian Instagram influencers, marketing creators India, tech YouTubers India, finance influencers India, HR creators India, product management India, operations India, Ankur Warikoo, Technical Guruji, Rachana Ranade, Raj Shamani, Sharan Hegde, Nikhil Kamath, Ishan Sharma, Deepak Kanakaraju, Sorav Jain, Abhijit Bhaduri">
+<meta property="og:title" content="Trendora – India's Creator Intelligence Platform">
+<meta property="og:description" content="Discover and rank India's top YouTube and Instagram content creators across every professional domain on Trendora.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://trendora.in/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* ── Trendora palette: Ink + Violet only ── */
+  --ink:#0D0B1E;          /* near-black with a violet undertone */
+  --ink-soft:#3B3757;     /* paragraph text */
+  --ink-ghost:#6B6890;    /* placeholders, meta */
+  --violet:#7C3AED;       /* primary brand */
+  --violet-mid:#9D62F7;   /* hover / lighter violet */
+  --violet-light:#EDE9FE; /* tints */
+  --violet-xlight:#F5F3FF;/* very pale violet for backgrounds */
+  --amber:#F59E0B;        /* single warm accent — used only for top-3 badges */
+  --amber-light:#FEF3C7;
+  /* Surfaces */
+  --surface:#FFFFFF;
+  --canvas:#F7F6FB;       /* off-white with violet cast */
+  --line:#E9E7F5;
+  --line-strong:#D4D0EC;
+  /* Functional radii & shadows */
+  --radius:18px; --radius-sm:12px; --radius-xs:9px;
+  --shadow-sm:0 2px 10px rgba(13,11,30,.06);
+  --shadow:0 10px 36px rgba(13,11,30,.10);
+  --shadow-v:0 12px 36px rgba(124,58,237,.22);
+  /* Domain palette — kept vivid, unchanged */
+  --c-mkt:#FF3D71;  --c-mkt-soft:#FFE8EF;
+  --c-tech:#2E6BFF; --c-tech-soft:#E4ECFF;
+  --c-fin:#00C48C;  --c-fin-soft:#DAF8EF;
+  --c-hr:#A855F7;   --c-hr-soft:#F2E6FE;
+  --c-ops:#FF8A00;  --c-ops-soft:#FFEFDB;
+  --c-pm:#00BBD6;   --c-pm-soft:#D8F6FB;
+  --c-all:#7C3AED;  --c-all-soft:#EDE9FE;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--canvas);color:var(--ink);line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--violet-light);color:var(--violet)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,246,251,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 clamp(1rem,4vw,2.5rem)}
+.nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink)}
+
+/* Trendora SVG wordmark-logo inline */
+.logo-svg{height:32px;width:auto;display:block}
+.nav-links{display:flex;gap:1.8rem;font-size:14px;font-weight:600;color:var(--ink-soft)}
+.nav-links a{transition:color .18s}
+.nav-links a:hover{color:var(--violet)}
+.nav-cta{background:var(--violet);color:#fff;padding:10px 22px;border-radius:var(--radius-xs);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s,background .2s;font-family:inherit;letter-spacing:-.01em}
+.nav-cta:hover{background:var(--violet-mid);transform:translateY(-2px);box-shadow:var(--shadow-v)}
+
+/* ── HERO ── */
+.hero{position:relative;padding:clamp(3.5rem,9vw,6.5rem) 1.5rem clamp(2.5rem,5vw,4.5rem);text-align:center;overflow:hidden;background:var(--ink)}
+/* soft violet glow blobs — monochromatic now */
+.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);z-index:0;animation:float 16s ease-in-out infinite}
+.blob1{width:420px;height:420px;background:#4C1D95;opacity:.7;top:-160px;left:-80px}
+.blob2{width:360px;height:360px;background:#7C3AED;opacity:.5;top:-60px;right:-60px;animation-delay:-6s}
+.blob3{width:280px;height:280px;background:#9D62F7;opacity:.35;bottom:-140px;left:42%;animation-delay:-11s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-20px) scale(1.07)}66%{transform:translate(-18px,15px) scale(.94)}}
+.hero-inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);backdrop-filter:blur(6px);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);border-radius:40px;font-size:12.5px;font-weight:600;padding:7px 18px;margin-bottom:1.8rem;letter-spacing:.04em}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#A78BFA;box-shadow:0 0 0 3px rgba(167,139,250,.3);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.3rem;color:#fff}
+.hero h1 .grad{background:linear-gradient(105deg,#A78BFA 0%,#7C3AED 60%,#C4B5FD 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:clamp(1rem,1.6vw,1.16rem);color:rgba(255,255,255,.62);max-width:560px;margin:0 auto 2.4rem;font-weight:500}
+.hero-search{max-width:560px;margin:0 auto;position:relative}
+.hero-search input{width:100%;padding:17px 22px 17px 54px;border:1.5px solid rgba(255,255,255,.14);border-radius:16px;font-size:15.5px;background:rgba(255,255,255,.09);backdrop-filter:blur(8px);color:#fff;outline:none;transition:all .2s;font-family:inherit;font-weight:500}
+.hero-search input::placeholder{color:rgba(255,255,255,.38)}
+.hero-search input:focus{border-color:var(--violet-mid);background:rgba(255,255,255,.13);box-shadow:0 0 0 4px rgba(124,58,237,.3)}
+.hero-search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.4);width:20px;height:20px}
+.hero-stats{display:flex;gap:clamp(1.6rem,5vw,3.5rem);justify-content:center;margin-top:2.8rem;flex-wrap:wrap}
+.hero-stat strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.03em;color:#C4B5FD}
+.hero-stat span{font-size:11.5px;color:rgba(255,255,255,.4);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* ── DOMAIN SELECTOR ── */
+.domains-section{max-width:1320px;margin:0 auto;padding:clamp(2.5rem,5vw,4rem) clamp(1rem,4vw,2.5rem) 0}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:.75rem;text-align:center}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:700;letter-spacing:-.03em;text-align:center;margin-bottom:.5rem;color:var(--ink)}
+.section-sub{color:var(--ink-soft);text-align:center;max-width:500px;margin:0 auto 2.6rem;font-weight:500;font-size:14.5px}
+
+.domain-rail{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:2.4rem}
+.dtile{position:relative;border:1.5px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:20px 10px 15px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .2s,box-shadow .25s;overflow:hidden;font-family:inherit}
+.dtile::before{content:"";position:absolute;inset:0;background:var(--tile-soft);opacity:0;transition:opacity .2s;z-index:0}
+.dtile:hover{transform:translateY(-7px);border-color:var(--tile);box-shadow:0 16px 36px color-mix(in srgb,var(--tile) 20%,transparent)}
+.dtile:hover::before{opacity:.55}
+.dtile.active{border-color:var(--tile);box-shadow:0 12px 32px color-mix(in srgb,var(--tile) 28%,transparent);transform:translateY(-5px)}
+.dtile.active::before{opacity:1}
+.dtile-ic{position:relative;z-index:1;width:46px;height:46px;display:flex;align-items:center;justify-content:center;color:var(--tile)}
+.dtile-ic svg{width:100%;height:100%;overflow:visible}
+.dtile-label{position:relative;z-index:1;font-size:12px;font-weight:700;color:var(--ink-ghost);letter-spacing:-.01em;transition:color .18s}
+.dtile:hover .dtile-label,.dtile.active .dtile-label{color:var(--tile)}
+.dtile-count{position:relative;z-index:1;font-size:10px;font-weight:700;color:var(--ink-ghost);background:var(--canvas);padding:2px 8px;border-radius:20px;border:1px solid var(--line)}
+.dtile.active .dtile-count{border-color:var(--tile);color:var(--tile)}
+
+/* icon animations */
+.dtile:hover .dtile-ic [data-spin],.dtile.active .dtile-ic [data-spin]{transform-box:fill-box;transform-origin:center;animation:spin 3.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dtile:hover .dtile-ic [data-bounce],.dtile.active .dtile-ic [data-bounce]{animation:bob 1.1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3.5px)}}
+.dtile:hover .dtile-ic [data-grow],.dtile.active .dtile-ic [data-grow]{transform-box:fill-box;transform-origin:bottom;animation:grow 1s ease-in-out infinite alternate}
+@keyframes grow{from{transform:scaleY(.5)}to{transform:scaleY(1)}}
+.dtile:hover .dtile-ic [data-pulse],.dtile.active .dtile-ic [data-pulse]{transform-box:fill-box;transform-origin:center;animation:beat 1s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}40%{transform:scale(1.2)}}
+.dtile:hover .dtile-ic [data-draw],.dtile.active .dtile-ic [data-draw]{stroke-dasharray:60;animation:draw 1.6s ease-in-out infinite}
+@keyframes draw{0%{stroke-dashoffset:60}55%{stroke-dashoffset:0}100%{stroke-dashoffset:-60}}
+.dtile:hover .dtile-ic [data-orbit],.dtile.active .dtile-ic [data-orbit]{transform-box:fill-box;transform-origin:center;animation:spin 2.6s linear infinite}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ── BANNER ── */
+.featured-banner{position:relative;border-radius:var(--radius);padding:clamp(1.4rem,3vw,2rem) clamp(1.5rem,3vw,2.4rem);margin-bottom:2.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:#fff;overflow:hidden;background:var(--banner-bg,linear-gradient(110deg,#7C3AED,#4C1D95));transition:background .5s ease}
+.featured-banner h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:700;letter-spacing:-.025em;margin-bottom:.3rem}
+.featured-banner p{font-size:13.5px;opacity:.88;max-width:460px;font-weight:500}
+.count-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2);padding:8px 18px;border-radius:30px;font-weight:700;font-size:13px;white-space:nowrap;font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
+
+/* ── CREATOR GRID ── */
+.creators-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;margin-bottom:4rem}
+.creator-card{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);padding:1.35rem;transition:transform .22s,border-color .2s,box-shadow .25s;overflow:hidden}
+.creator-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-accent,var(--violet));opacity:0;transition:opacity .22s}
+.creator-card:hover{transform:translateY(-5px);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.creator-card:hover::after{opacity:1}
+.creator-card-top{display:flex;align-items:flex-start;gap:13px;margin-bottom:12px}
+.avatar-wrap{flex-shrink:0;position:relative}
+.live-dot{position:absolute;bottom:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#00C48C;border:2.5px solid var(--surface);box-shadow:0 0 0 1px rgba(0,196,140,.3)}
+.avatar-img{width:58px;height:58px;border-radius:14px;object-fit:cover;border:1.5px solid var(--line);background:var(--violet-xlight)}
+.avatar-fallback{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px;color:#fff;font-family:'Space Grotesk',sans-serif}
+.creator-info{flex:1;min-width:0}
+.creator-name{font-weight:700;font-size:15.5px;letter-spacing:-.02em;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
+.creator-handle{font-size:12px;color:var(--ink-ghost);margin-bottom:8px;font-weight:600}
+.creator-platforms{display:flex;gap:6px;flex-wrap:wrap}
+.platform-tag{font-size:11px;font-weight:700;padding:4px 11px;border-radius:30px;display:inline-flex;align-items:center;gap:5px;transition:transform .14s,box-shadow .18s,background .18s,color .18s;cursor:pointer;border:none}
+.platform-tag svg{width:12px;height:12px;flex-shrink:0}
+.platform-tag:hover{transform:translateY(-2px)}
+.yt-tag{background:#FFE8E8;color:#C0130E}
+.yt-tag:hover{background:#FF0000;color:#fff;box-shadow:0 5px 14px rgba(255,0,0,.32)}
+.ig-tag{background:#FCE6F1;color:#B5006F}
+.ig-tag:hover{background:linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf);color:#fff;box-shadow:0 5px 14px rgba(214,41,118,.3)}
+.creator-desc{font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:12px;font-weight:500;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.creator-chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px}
+.chip{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:30px;background:var(--violet-xlight);color:var(--violet);border:1px solid var(--violet-light)}
+.creator-metrics{display:flex;gap:.75rem;padding-top:12px;border-top:1px solid var(--line)}
+.metric{flex:1}
+.metric-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.02em;color:var(--ink)}
+.metric-lbl{font-size:10.5px;color:var(--ink-ghost);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.rank-badge{position:absolute;top:13px;right:13px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:30px;background:var(--canvas);color:var(--ink-ghost);border:1px solid var(--line);z-index:2;letter-spacing:-.01em}
+.creator-card.top3 .rank-badge{background:linear-gradient(120deg,var(--amber-light),#FDE68A);color:#92400E;border-color:#FCD34D;box-shadow:0 3px 10px rgba(245,158,11,.22)}
+
+.no-results{text-align:center;padding:4rem;color:var(--ink-ghost);font-weight:600;display:none}
+.no-results.show{display:block}
+
+/* ── SEO ── */
+.seo-section{background:var(--surface);border-top:1px solid var(--line);padding:clamp(2.5rem,5vw,4.5rem) clamp(1rem,4vw,2.5rem)}
+.seo-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.seo-block h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.65rem;display:flex;align-items:center;gap:9px;color:var(--ink)}
+.seo-block h3 .sdot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+.seo-block p{font-size:13px;color:var(--ink-soft);line-height:1.72;font-weight:500}
+.seo-block ul{list-style:none;margin-top:.65rem;display:flex;flex-wrap:wrap;gap:6px}
+.seo-block ul li{font-size:11px;font-weight:700;color:var(--violet);background:var(--violet-xlight);border:1px solid var(--violet-light);padding:4px 11px;border-radius:30px}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
+.footer-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.footer-wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#fff;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+.footer-wordmark svg{height:28px;width:auto}
+.footer-copy{font-size:13px;color:#5B5880;font-weight:500}
+.footer-links{display:flex;gap:1.6rem;font-size:13px;font-weight:600}
+.footer-links a{color:#6B6890;transition:color .18s}
+.footer-links a:hover{color:#C4B5FD}
+
+/* ── RESPONSIVE ── */
+/* ── PAGES / ROUTER ── */
+.page[hidden]{display:none}
+
+/* hero chips on landing */
+.hero-chips{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.hchip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.82);font-family:inherit;font-weight:600;font-size:13px;padding:7px 16px;border-radius:30px;cursor:pointer;transition:all .18s}
+.hchip:hover{background:var(--violet);border-color:var(--violet);color:#fff;transform:translateY(-2px)}
+
+/* WHAT WE DO */
+.bio{max-width:1320px;margin:0 auto;padding:clamp(3rem,7vw,5.5rem) clamp(1rem,4vw,2.5rem)}
+.bio-inner{text-align:center}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:3rem;text-align:left}
+.feature-card{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius);padding:1.6rem;transition:transform .22s,box-shadow .25s,border-color .2s}
+.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-strong)}
+.feature-ic{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--fc) 12%,white);color:var(--fc);margin-bottom:1.1rem}
+.feature-ic svg{width:25px;height:25px}
+.feature-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.12rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.45rem;color:var(--ink)}
+.feature-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;font-weight:500}
+
+/* WHY CREATORS pitch */
+.creators-pitch{background:var(--ink);padding:clamp(3rem,7vw,5.5rem) clamp(1rem,4vw,2.5rem);position:relative;overflow:hidden}
+.pitch-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;position:relative;z-index:2}
+.pitch-left h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:700;letter-spacing:-.035em;line-height:1.08;color:#fff;margin-bottom:1.1rem}
+.pitch-left p{color:rgba(255,255,255,.6);font-size:15px;font-weight:500;line-height:1.7;margin-bottom:1.8rem;max-width:440px}
+.pitch-cta{display:inline-block;background:var(--violet);color:#fff;font-weight:700;font-size:14.5px;padding:13px 26px;border-radius:var(--radius-xs);transition:transform .15s,background .2s}
+.pitch-cta:hover{background:var(--violet-mid);transform:translateY(-2px)}
+.pitch-right{display:flex;flex-direction:column;gap:1.1rem}
+.pitch-point{display:flex;gap:16px;align-items:flex-start}
+.pp-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:#A78BFA;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.35);width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pitch-point strong{display:block;color:#fff;font-size:15px;font-weight:700;margin-bottom:2px;letter-spacing:-.01em}
+.pitch-point p{color:rgba(255,255,255,.55);font-size:13.5px;font-weight:500;line-height:1.55;margin:0}
+
+/* FINAL CTA */
+.final-cta{max-width:1320px;margin:0 auto;padding:clamp(3rem,6vw,5rem) clamp(1rem,4vw,2.5rem)}
+.final-inner{background:linear-gradient(120deg,var(--violet),#4C1D95);border-radius:24px;padding:clamp(2.5rem,5vw,4rem);text-align:center;color:#fff}
+.final-inner h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.03em;margin-bottom:.7rem}
+.final-inner p{color:rgba(255,255,255,.8);font-size:15px;font-weight:500;margin-bottom:1.8rem;max-width:480px;margin-left:auto;margin-right:auto}
+.final-btn{background:#fff;color:var(--violet);font-family:inherit;font-weight:700;font-size:15px;padding:14px 32px;border:none;border-radius:var(--radius-xs);cursor:pointer;transition:transform .15s,box-shadow .2s}
+.final-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+
+/* DIRECTORY page header */
+.dir-head{background:var(--ink);padding:clamp(2.5rem,6vw,4rem) clamp(1rem,4vw,2.5rem) clamp(2rem,4vw,3rem)}
+.dir-head-inner{max-width:760px;margin:0 auto;text-align:center}
+.dir-head h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.035em;color:#fff;margin-bottom:.6rem}
+.dir-head p{color:rgba(255,255,255,.6);font-size:15px;font-weight:500;margin-bottom:2rem}
+.dir-search{max-width:600px}
+
+.nav-sign-in{background:transparent;color:var(--ink-soft);border:1.5px solid var(--line-strong);padding:9px 18px;border-radius:var(--radius-xs);font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.nav-sign-in:hover{border-color:var(--violet);color:var(--violet)}
+
+/* ════ AUTH PAGE #/auth ════ */
+.auth-page{min-height:calc(100vh - 66px);display:grid;grid-template-columns:1fr 1fr}
+.auth-left{background:var(--ink);position:relative;overflow:hidden;display:flex;flex-direction:column;padding:clamp(2rem,5vw,3.5rem)}
+.auth-blob{position:absolute;border-radius:50%;filter:blur(72px);z-index:0}
+.ab1{width:420px;height:420px;background:#4C1D95;opacity:.7;top:-120px;right:-80px}
+.ab2{width:280px;height:280px;background:#7C3AED;opacity:.45;bottom:-80px;left:-40px}
+.auth-left-logo{position:relative;z-index:2;display:flex;align-items:center;gap:10px;margin-bottom:2.5rem}
+.auth-left-logo span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#fff}
+.auth-left-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center}
+.auth-left h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1.12;margin-bottom:1rem}
+.auth-left h2 em{font-style:normal;background:linear-gradient(105deg,#A78BFA,#7C3AED);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.auth-left > p,.auth-left-inner > p{color:rgba(255,255,255,.58);font-size:14.5px;line-height:1.72;font-weight:500;margin-bottom:2rem}
+.role-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:2rem}
+.role-card{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);padding:1rem 1.2rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px}
+.role-card:hover,.role-card.selected{background:rgba(124,58,237,.25);border-color:#7C3AED}
+.role-card.selected{box-shadow:0 0 0 3px rgba(124,58,237,.28)}
+/* role cards inside the light right panel need different colors */
+#signup-role-pick .role-card{background:var(--surface)}
+#signup-role-pick .role-card:hover{background:var(--violet-xlight,#F5F3FF);border-color:var(--violet)}
+#signup-role-pick .role-card.selected{background:var(--violet-light);border-color:var(--violet);box-shadow:0 0 0 3px rgba(124,58,237,.15)}
+.role-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.role-icon svg{width:20px;height:20px}
+.role-card-text strong{display:block;color:#fff;font-size:13.5px;font-weight:700;margin-bottom:2px}
+.role-card-text span{color:rgba(255,255,255,.52);font-size:12px;line-height:1.45}
+.role-bullets{list-style:none;padding:0;margin:1.5rem 0 0}
+.role-bullets li{color:rgba(255,255,255,.6);font-size:12.5px;padding:4px 0 4px 20px;position:relative;font-weight:500}
+.role-bullets li::before{content:"✦";position:absolute;left:0;color:#A78BFA;font-size:9px;top:6px}
+.auth-right{background:var(--canvas);display:flex;align-items:flex-start;justify-content:center;padding:clamp(2rem,5vw,3.5rem);overflow-y:auto}
+.auth-form-wrap{width:100%;max-width:430px;padding-top:1rem}
+.auth-tabs{display:flex;background:var(--line);border-radius:12px;padding:4px;margin-bottom:1.8rem;gap:4px}
+.auth-tab{flex:1;padding:10px;border:none;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink-ghost);cursor:pointer;border-radius:9px;transition:all .18s}
+.auth-tab.active{background:var(--surface);color:var(--violet);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.auth-form-title{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.025em;margin-bottom:.3rem}
+.auth-form-sub{color:var(--ink-ghost);font-size:13px;font-weight:500;margin-bottom:1.6rem}
+.f-group{margin-bottom:1rem}
+.f-label{display:block;font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.03em;text-transform:uppercase}
+.f-input{width:100%;padding:11px 13px;border:1.5px solid var(--line-strong);border-radius:var(--radius-xs);font-size:14px;font-family:inherit;font-weight:500;color:var(--ink);background:var(--surface);outline:none;transition:border .18s,box-shadow .18s}
+.f-input:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(124,58,237,.11)}
+.f-input::placeholder{color:var(--ink-ghost)}
+.f-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236B6890' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f-platform-row{display:flex;gap:7px;flex-wrap:wrap}
+.f-platform{padding:7px 13px;border:1.5px solid var(--line-strong);border-radius:30px;font-size:12px;font-weight:700;cursor:pointer;background:var(--surface);color:var(--ink-soft);transition:all .18s;display:flex;align-items:center;gap:5px;user-select:none}
+.f-platform.on.yt{border-color:#FF0000;background:#FEE2E2;color:#C0130E}
+.f-platform.on.ig{border-color:#C13584;background:#FCE6F1;color:#9D174D}
+.f-platform.on.li{border-color:#0A66C2;background:#DBEAFE;color:#0A66C2}
+.f-domain-grid,.f-goal-grid{display:flex;flex-wrap:wrap;gap:7px}
+.f-domain-chip{padding:6px 12px;border:1.5px solid var(--line-strong);border-radius:30px;font-size:11.5px;font-weight:700;cursor:pointer;background:var(--surface);color:var(--ink-soft);transition:all .18s;user-select:none}
+.f-domain-chip.on{border-color:var(--violet);background:var(--violet-light);color:var(--violet)}
+.f-goal{padding:6px 12px;border:1.5px solid var(--line-strong);border-radius:var(--radius-xs);font-size:11.5px;font-weight:600;cursor:pointer;background:var(--surface);color:var(--ink-soft);transition:all .18s;user-select:none}
+.f-goal.on{border-color:var(--violet);background:var(--violet-xlight,#F5F3FF);color:var(--violet)}
+.f-submit{width:100%;padding:13px;background:var(--violet);color:#fff;border:none;border-radius:var(--radius-xs);font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .15s,background .2s,box-shadow .2s;margin-top:.6rem}
+.f-submit:hover{background:var(--violet-mid);transform:translateY(-2px);box-shadow:0 12px 30px rgba(124,58,237,.32)}
+.f-divider{display:flex;align-items:center;gap:10px;margin:1.1rem 0;color:var(--ink-ghost);font-size:12px;font-weight:600}
+.f-divider::before,.f-divider::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+.f-switch{text-align:center;font-size:13px;color:var(--ink-ghost);margin-top:1rem}
+.f-switch a{color:var(--violet);font-weight:700;cursor:pointer}
+.auth-success{text-align:center;padding:1.5rem 0}
+.auth-success-icon{width:62px;height:62px;background:linear-gradient(135deg,#00C48C,#00E8A8);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;box-shadow:0 8px 24px rgba(0,196,140,.28)}
+.auth-success-icon svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.auth-success h3{font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:700;color:var(--ink);margin-bottom:.45rem}
+.auth-success p{color:var(--ink-soft);font-size:13.5px;line-height:1.7;margin-bottom:1.5rem}
+.auth-success-cta{background:var(--violet);color:#fff;padding:12px 26px;border-radius:var(--radius-xs);font-weight:700;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:background .2s}
+.auth-success-cta:hover{background:var(--violet-mid)}
+
+/* ── NAV ── */
+@media(max-width:880px){
+  .nav-links{display:none}
+  .domain-rail{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:760px){
+  .pitch-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .domain-rail{grid-template-columns:repeat(3,1fr);gap:8px}
+  .dtile-count{display:none}
+  .creators-grid{grid-template-columns:1fr}
+  .dtile{padding:15px 8px 12px}
+}
+</style>
+</head>
+<body>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Trendora","description":"Trendora — India's creator intelligence platform. Discover and rank India's top YouTube and Instagram content creators across Marketing, Tech, Finance, HR, Operations and Product Management.","url":"https://trendora.in","potentialAction":{"@type":"SearchAction","target":"https://trendora.in/search?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="#/" aria-label="Trendora Home">
+      <!-- Trendora logo: rising trend-line that forms a T, all in violet -->
+      <svg class="logo-svg" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Icon mark: upward trend arrow forming a stylised T -->
+        <rect width="36" height="36" rx="10" fill="#7C3AED"/>
+        <!-- Vertical stem of T -->
+        <rect x="16" y="14" width="4" height="14" rx="2" fill="white"/>
+        <!-- Horizontal bar of T as a rising trend line -->
+        <path d="M8 20 L14 13 L22 17 L28 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Arrow head -->
+        <path d="M24 9 L28 9 L28 13" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Wordmark -->
+        <text x="44" y="25" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="19" fill="#0D0B1E" letter-spacing="-0.6">Trendora</text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#/">Home</a>
+      <a href="#/directory">Browse Creators</a>
+      <a href="#/#how">How it works</a>
+      <a href="#/auth?role=creator" style="color:var(--violet);font-weight:700">For Creators</a>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="nav-sign-in" onclick="location.hash='#/auth?mode=signin'">Sign in</button>
+      <button class="nav-cta" onclick="location.hash='#/auth'">Join Trendora</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════════ PAGE 1 : LANDING / ABOUT ═══════════════ -->
+<div id="page-home" class="page">
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-blob blob1" aria-hidden="true"></div>
+  <div class="hero-blob blob2" aria-hidden="true"></div>
+  <div class="hero-blob blob3" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot" aria-hidden="true"></span> India's Creator Intelligence Platform</div>
+    <h1 id="hero-heading">Find the creators<br><span class="grad">shaping your industry.</span></h1>
+    <p>Trendora is where brands and audiences discover India's top creators — ranked across Finance, Tech, Fashion, Food, Gaming and Fitness on YouTube and Instagram.</p>
+    <div class="hero-search" role="search">
+      <svg class="hero-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+      <input type="search" id="homeSearch" placeholder="Looking for content creators? Search by the domains you want to grow in…" aria-label="Search creators by domain"
+             onkeydown="if(event.key==='Enter'){goSearch(this.value)}">
+    </div>
+    <div class="hero-chips" aria-label="Popular domains">
+      <button class="hchip" onclick="goDomain('finance')">Finance</button>
+      <button class="hchip" onclick="goDomain('tech')">Tech</button>
+      <button class="hchip" onclick="goDomain('fashion')">Fashion</button>
+      <button class="hchip" onclick="goDomain('food')">Food</button>
+      <button class="hchip" onclick="goDomain('gaming')">Gaming</button>
+      <button class="hchip" onclick="goDomain('fitness')">Fitness</button>
+    </div>
+    <div class="hero-stats" aria-label="Platform statistics">
+      <div class="hero-stat"><strong>120+</strong><span>Ranked Creators</span></div>
+      <div class="hero-stat"><strong>6</strong><span>Domains</span></div>
+      <div class="hero-stat"><strong>500M+</strong><span>Combined Reach</span></div>
+      <div class="hero-stat"><strong>2</strong><span>Platforms</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="bio" id="how" aria-labelledby="how-heading">
+  <div class="bio-inner">
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-title" id="how-heading">One home for India's creator economy</h2>
+    <p class="section-sub">Finding the right creator used to mean endless scrolling and guesswork. Trendora organises India's top YouTube and Instagram voices across Finance, Tech, Fashion, Food, Gaming and Fitness — so the right creator is always one search away.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-ic" style="--fc:var(--c-tech)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+        </div>
+        <h3>Search by domain</h3>
+        <p>Pick the field you want to grow in — Marketing, Tech, Finance, HR, Operations or Product — and instantly see the creators who own that space.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ic" style="--fc:var(--c-fin)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M16 8h5v5"/></svg>
+        </div>
+        <h3>Ranked by real impact</h3>
+        <p>Every creator is ranked on reach and engagement — with live subscriber data pulled straight from YouTube, not vanity numbers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ic" style="--fc:var(--c-mkt)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg>
+        </div>
+        <h3>Verified profiles</h3>
+        <p>One tap takes you to a creator's real YouTube and Instagram — confirmed handles, not guesses or dead links.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ic" style="--fc:var(--c-ops)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Built for India</h3>
+        <p>Focused entirely on Indian creators and Indian audiences — from metro-first English to Bharat-first regional voices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CREATORS (the pitch) -->
+<section class="creators-pitch" id="creators" aria-labelledby="cre-heading">
+  <div class="pitch-inner">
+    <div class="pitch-left">
+      <div class="eyebrow" style="color:#C4B5FD">For creators</div>
+      <h2 id="cre-heading">Why Trendora is the<br>best place to be seen</h2>
+      <p>If you create content that teaches, sells, or inspires, Trendora puts you in front of the people actively searching for a voice like yours — brands hunting for partners, peers studying the field, and audiences looking to learn.</p>
+      <a class="pitch-cta" href="#/auth?role=creator">Join as a creator →</a>
+    </div>
+    <div class="pitch-right">
+      <div class="pitch-point"><span class="pp-num">01</span><div><strong>Get discovered by intent</strong><p>People arrive already looking for your domain — the warmest discovery there is.</p></div></div>
+      <div class="pitch-point"><span class="pp-num">02</span><div><strong>Rank on merit, not ads</strong><p>Placement is earned through reach and engagement. No pay-to-win, no buried profiles.</p></div></div>
+      <div class="pitch-point"><span class="pp-num">03</span><div><strong>Own your niche</strong><p>Be the name that comes up when someone searches "best finance creator in India."</p></div></div>
+      <div class="pitch-point"><span class="pp-num">04</span><div><strong>Grow across platforms</strong><p>Your YouTube and Instagram, side by side, so followers find every place you post.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>Ready to find your next favourite creator?</h2>
+    <p>Browse 120+ ranked creators across six domains — or search for exactly the expertise you need.</p>
+    <button class="final-btn" onclick="location.hash='#/auth'">Join Trendora free →</button>
+  </div>
+</section>
+</div><!-- /page-home -->
+
+
+<!-- ═══════════════ PAGE 2 : DIRECTORY ═══════════════ -->
+<div id="page-directory" class="page" hidden>
+<section class="dir-head" aria-labelledby="dir-heading">
+  <div class="dir-head-inner">
+    <h1 id="dir-heading">The Creator Directory</h1>
+    <p>Search India's top creators, or pick a domain you want to grow in.</p>
+    <div class="hero-search dir-search" role="search">
+      <svg class="hero-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+      <input type="search" id="globalSearch" placeholder="Looking for content creators? Search by the domains you want to grow in…" aria-label="Search creators" oninput="handleSearch(this.value)">
+    </div>
+  </div>
+</section>
+
+<section class="domains-section" id="domains" aria-labelledby="domains-heading">
+  <div class="eyebrow">Pick a world</div>
+  <h2 class="section-title" id="domains-heading">Explore creators by domain</h2>
+  <p class="section-sub">Tap an icon to dive into that world — or browse the entire directory at once.</p>
+
+  <div class="domain-rail" id="domain-rail" role="tablist" aria-label="Creator domains"></div>
+
+  <div class="featured-banner" id="domain-banner" aria-label="Selected domain">
+    <div>
+      <h3 id="banner-title">All Creators</h3>
+      <p id="banner-desc">India's complete directory of top content creators across every domain.</p>
+    </div>
+    <span class="count-pill" id="count-pill"></span>
+  </div>
+
+  <div class="creators-grid" id="grid-main" aria-label="Creators grid"></div>
+  <div class="no-results" id="no-results">No creators found matching your search.</div>
+</section>
+
+<section class="seo-section" id="seo-content" aria-labelledby="seo-heading">
+  <div class="seo-inner">
+    <div class="seo-block">
+      <h3><span class="sdot" style="background:var(--c-fin)"></span>Finance & Investing Creators</h3>
+      <p>India's top finance voices — Sharan Hegde, Ankur Warikoo, Neha Nagar, Sarthak Ahuja, Groww and more. Personal finance, stock market, tax planning and wealth building.</p>
+      <ul><li>Personal Finance India</li><li>Stock Market Creators</li><li>Tax Planning</li><li>Mutual Funds</li><li>Financial Literacy</li></ul>
+    </div>
+    <div class="seo-block">
+      <h3><span class="sdot" style="background:var(--c-tech)"></span>Tech & Gadget Creators</h3>
+      <p>India's most trusted tech creators — Technical Guruji (Gaurav Chaudhary), Tech Burner (Shlok Srivastava), Technology Gyan and more for smartphone reviews and AI tools.</p>
+      <ul><li>Smartphone Reviews India</li><li>Hindi Tech YouTube</li><li>AI Tools India</li><li>Gadget Comparisons</li><li>Budget Tech</li></ul>
+    </div>
+    <div class="seo-block">
+      <h3><span class="sdot" style="background:var(--c-mkt)"></span>Fashion & Lifestyle Creators</h3>
+      <p>India's style icons — Komal Pandey, Masoom Minawala, Karron S Dhinggra, Sakshi Sindwani and more covering fashion, grooming, beauty and lifestyle.</p>
+      <ul><li>Indian Fashion Influencers</li><li>Men's Style India</li><li>Plus-Size Fashion</li><li>Luxury Fashion India</li><li>Body Positivity</li></ul>
+    </div>
+    <div class="seo-block">
+      <h3><span class="sdot" style="background:var(--c-ops)"></span>Food, Gaming & Fitness</h3>
+      <p>From Michelin-starred chefs like Vikas Khanna and Ranveer Brar to gaming legends like Techno Gamerz and fitness coaches like Namrata Purohit — all in one directory.</p>
+      <ul><li>Indian Food Creators</li><li>Gaming YouTubers India</li><li>Fitness India Instagram</li><li>MasterChef India</li><li>Esports India</li></ul>
+    </div>
+  </div>
+</section>
+</div><!-- /page-directory -->
+
+<!-- ═══════════════ PAGE 3 : AUTH (Sign In / Sign Up) ═══════════════ -->
+<div id="page-auth" class="page" hidden>
+<div class="auth-page">
+
+  <!-- LEFT PANEL — value proposition + role selector -->
+  <div class="auth-left" id="auth-left-panel">
+    <div class="auth-left-logo">
+      <svg width="32" height="32" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="10" fill="#7C3AED"/><rect x="16" y="14" width="4" height="14" rx="2" fill="white"/><path d="M8 20 L14 13 L22 17 L28 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 9 L28 9 L28 13" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Trendora</span>
+    </div>
+    <div class="auth-blob ab1" aria-hidden="true"></div>
+    <div class="auth-blob ab2" aria-hidden="true"></div>
+    <div class="auth-left-inner" id="auth-panel-content">
+      <!-- Content injected by JS based on selected role -->
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL — forms -->
+  <div class="auth-right">
+    <div class="auth-form-wrap">
+
+      <!-- Sign In / Sign Up tabs -->
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" id="tab-signup" role="tab" aria-selected="true" onclick="authMode('signup')">Create account</button>
+        <button class="auth-tab" id="tab-signin" role="tab" aria-selected="false" onclick="authMode('signin')">Sign in</button>
+      </div>
+
+      <!-- SIGN UP FORMS -->
+      <div id="form-signup">
+        <!-- Step 1: Role picker (before form) -->
+        <div id="signup-role-pick">
+          <div class="auth-form-title">Join Trendora</div>
+          <div class="auth-form-sub">Choose what describes you best to get the right experience.</div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:1.5rem">
+            <div class="role-card" id="pick-creator" onclick="pickRole('creator')" style="border:1.5px solid var(--line-strong);background:var(--surface)">
+              <div class="role-icon" style="background:#EDE9FE">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14"/><rect x="2" y="6" width="13" height="12" rx="3"/></svg>
+              </div>
+              <div class="role-card-text">
+                <strong style="color:var(--ink)">I'm a Content Creator</strong>
+                <span style="color:var(--ink-ghost)">Get discovered by brands, track your growth, manage collabs</span>
+              </div>
+            </div>
+            <div class="role-card" id="pick-brand" onclick="pickRole('brand')" style="border:1.5px solid var(--line-strong);background:var(--surface)">
+              <div class="role-icon" style="background:#FEF3C7">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+              </div>
+              <div class="role-card-text">
+                <strong style="color:var(--ink)">I represent a Brand</strong>
+                <span style="color:var(--ink-ghost)">Discover the right creators, run campaigns, grow your reach</span>
+              </div>
+            </div>
+          </div>
+          <button class="f-submit" onclick="proceedWithRole()">Continue →</button>
+          <div class="f-switch">Already have an account? <a onclick="authMode('signin')">Sign in</a></div>
+        </div>
+
+        <!-- CREATOR signup form (hidden until role picked) -->
+        <div id="signup-creator" style="display:none">
+          <div class="auth-form-title">Creator profile</div>
+          <div class="auth-form-sub">Set up your Trendora creator profile in 2 minutes.</div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">First name</label><input class="f-input" type="text" placeholder="Aayush" id="c-fname"></div>
+            <div class="f-group"><label class="f-label">Last name</label><input class="f-input" type="text" placeholder="Sharma" id="c-lname"></div>
+          </div>
+          <div class="f-group"><label class="f-label">Email</label><input class="f-input" type="email" placeholder="you@email.com" id="c-email"></div>
+          <div class="f-group"><label class="f-label">Password</label><input class="f-input" type="password" placeholder="Min 8 characters" id="c-pass"></div>
+          <div class="f-group"><label class="f-label">Your primary Instagram handle</label><input class="f-input" type="text" placeholder="@yourhandle" id="c-ig"></div>
+          <div class="f-group"><label class="f-label">YouTube channel (optional)</label><input class="f-input" type="text" placeholder="@yourchannel or URL" id="c-yt"></div>
+          <div class="f-group">
+            <label class="f-label">Content domain</label>
+            <div class="f-domain-grid" id="c-domain-chips">
+              <span class="f-domain-chip" onclick="toggleChip(this)">Finance</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Tech</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Fashion</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Food</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Gaming</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Fitness</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Travel</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Education</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Comedy</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Other</span>
+            </div>
+          </div>
+          <div class="f-group">
+            <label class="f-label">What are you looking for?</label>
+            <div class="f-goal-grid" id="c-goals">
+              <span class="f-goal" onclick="toggleChip(this)">Brand Collabs</span>
+              <span class="f-goal" onclick="toggleChip(this)">Increase Visibility</span>
+              <span class="f-goal" onclick="toggleChip(this)">Track Performance</span>
+              <span class="f-goal" onclick="toggleChip(this)">Monetise Content</span>
+              <span class="f-goal" onclick="toggleChip(this)">Build Network</span>
+              <span class="f-goal" onclick="toggleChip(this)">Get Ranked</span>
+            </div>
+          </div>
+          <button class="f-submit" onclick="submitCreator()">Create my creator profile →</button>
+          <div class="f-switch"><a onclick="showRolePick()" style="color:var(--ink-ghost)">← Back</a> &nbsp;·&nbsp; Already have an account? <a onclick="authMode('signin')">Sign in</a></div>
+        </div>
+
+        <!-- BRAND signup form -->
+        <div id="signup-brand" style="display:none">
+          <div class="auth-form-title">Brand account</div>
+          <div class="auth-form-sub">Find the right creators to amplify your brand in India.</div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">First name</label><input class="f-input" type="text" placeholder="Rahul" id="b-fname"></div>
+            <div class="f-group"><label class="f-label">Last name</label><input class="f-input" type="text" placeholder="Mehta" id="b-lname"></div>
+          </div>
+          <div class="f-group"><label class="f-label">Brand / Company name</label><input class="f-input" type="text" placeholder="Acme Pvt. Ltd." id="b-brand"></div>
+          <div class="f-group"><label class="f-label">Work email</label><input class="f-input" type="email" placeholder="you@company.com" id="b-email"></div>
+          <div class="f-group"><label class="f-label">Password</label><input class="f-input" type="password" placeholder="Min 8 characters" id="b-pass"></div>
+          <div class="f-group">
+            <label class="f-label">Industry</label>
+            <select class="f-input f-select" id="b-industry">
+              <option value="" disabled selected>Select your industry</option>
+              <option>D2C / E-commerce</option>
+              <option>FMCG / Consumer Goods</option>
+              <option>FinTech / BFSI</option>
+              <option>EdTech / E-Learning</option>
+              <option>Health & Wellness</option>
+              <option>Fashion & Apparel</option>
+              <option>Food & Beverage</option>
+              <option>Travel & Hospitality</option>
+              <option>SaaS / Technology</option>
+              <option>Real Estate</option>
+              <option>Automotive</option>
+              <option>Media & Entertainment</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="f-group"><label class="f-label">Website (optional)</label><input class="f-input" type="url" placeholder="https://yourbrand.com" id="b-website"></div>
+          <div class="f-group">
+            <label class="f-label">Domains you want to target</label>
+            <div class="f-domain-grid" id="b-domain-chips">
+              <span class="f-domain-chip" onclick="toggleChip(this)">Finance</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Tech</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Fashion</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Food</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Gaming</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Fitness</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Travel</span>
+              <span class="f-domain-chip" onclick="toggleChip(this)">Education</span>
+            </div>
+          </div>
+          <div class="f-group">
+            <label class="f-label">What are you here to do?</label>
+            <div class="f-goal-grid" id="b-goals">
+              <span class="f-goal" onclick="toggleChip(this)">Find Creators</span>
+              <span class="f-goal" onclick="toggleChip(this)">Run Campaigns</span>
+              <span class="f-goal" onclick="toggleChip(this)">Product Promotion</span>
+              <span class="f-goal" onclick="toggleChip(this)">Brand Awareness</span>
+              <span class="f-goal" onclick="toggleChip(this)">App Downloads</span>
+              <span class="f-goal" onclick="toggleChip(this)">Drive Sales</span>
+            </div>
+          </div>
+          <button class="f-submit" onclick="submitBrand()">Create brand account →</button>
+          <div class="f-switch"><a onclick="showRolePick()" style="color:var(--ink-ghost)">← Back</a> &nbsp;·&nbsp; Already have an account? <a onclick="authMode('signin')">Sign in</a></div>
+        </div>
+
+        <!-- SUCCESS state -->
+        <div id="signup-success" style="display:none">
+          <div class="auth-success">
+            <div class="auth-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3 id="success-title">You're in!</h3>
+            <p id="success-msg">Your Trendora profile is live. We'll review it shortly and you'll hear from us within 24 hours.</p>
+            <button class="auth-success-cta" onclick="location.hash='#/'">Back to Trendora →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGN IN FORM -->
+      <div id="form-signin" style="display:none">
+        <div class="auth-form-title">Welcome back</div>
+        <div class="auth-form-sub">Sign in to your Trendora account.</div>
+        <div class="f-group"><label class="f-label">Email</label><input class="f-input" type="email" placeholder="you@email.com" id="si-email"></div>
+        <div class="f-group"><label class="f-label">Password</label><input class="f-input" type="password" placeholder="Your password" id="si-pass"></div>
+        <button class="f-submit" onclick="submitSignIn()">Sign in →</button>
+        <div class="f-divider">or</div>
+        <div class="f-switch">Don't have an account? <a onclick="authMode('signup')">Join Trendora</a></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div><!-- /page-auth -->
+
+</main>
+
+<footer id="about">
+  <div class="footer-inner">
+    <div class="footer-wordmark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="36" height="36" rx="10" fill="#7C3AED"/>
+        <rect x="16" y="14" width="4" height="14" rx="2" fill="white"/>
+        <path d="M8 20 L14 13 L22 17 L28 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 9 L28 9 L28 13" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Trendora
+    </div>
+    <p class="footer-copy">India's creator intelligence platform — ranked by domain, reach &amp; engagement.</p>
+    <div class="footer-links">
+      <a href="#/#how">About</a><a href="#/directory">Browse</a><a href="#/#creators">For Creators</a><a href="#/directory">Directory</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+const CREATORS = {
+  finance: [
+    {name:"Shivam Malik",handle:"@shivammalik09",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00C48C",desc:"Personal finance educator making money simple for young Indians. Known for punchy, relatable Reels on budgeting, savings and avoiding bad debt.",tags:["Personal Finance","Budgeting","Savings"],rank:1},
+    {name:"Abhishek Kar",handle:"@abhishekkarofficial",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00C48C",desc:"Finance storyteller and author of 'The 1% Formula'. Covers wealth psychology, compounding habits and the mindset behind building long-term financial health in India.",tags:["Wealth Mindset","Compounding","Books"],rank:2},
+    {name:"Sarthak Ahuja",handle:"@casarthakahuja",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Chartered Accountant turning complex tax and finance concepts into crisp, actionable content. Covers income tax filing, GST, and CA career guidance for Indian professionals.",tags:["Taxation","GST","CA Career"],rank:3},
+    {name:"Sharan Hegde",handle:"@financewithsharan",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00C48C",desc:"India's most entertaining finance creator. GQ Most Influential Indian 2024. Covers insurance myths, SIPs, tax-saving, and debunks financial misinformation through viral Reels.",tags:["SIPs","Insurance","Financial Myths"],rank:4},
+    {name:"Neha Nagar",handle:"@iamnehanagar",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Finance influencer and international speaker covering personal finance, credit card hacks and side income strategies in Hindi for first-generation investors across India.",tags:["Hindi Finance","Credit Cards","Side Income"],rank:5},
+    {name:"AISM India",handle:"@aismindia",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Academy for Investment and Stock Market — educating retail investors on stock analysis, mutual funds, options trading, and building a passive income portfolio from scratch.",tags:["Stock Market","Options Trading","Passive Income"],rank:6},
+    {name:"Sakchi Jain",handle:"@ca.sakchijain",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Chartered Accountant creating sharp finance content on tax planning, income declaration, NRI taxation and everyday money decisions that salaried Indians face.",tags:["Tax Planning","NRI Finance","Salaried Finance"],rank:7},
+    {name:"Groww.in",handle:"@groww_official",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Official Instagram of Groww — India's leading investment platform. Shares market updates, mutual fund explainers, SIP guides and beginner investing tips for a 50M+ user base.",tags:["Mutual Funds","Investing Platform","Market Updates"],rank:8},
+    {name:"Ankur Warikoo",handle:"@ankurwarikoo",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00C48C",desc:"Entrepreneur, bestselling author of 'Make Epic Money'. Creates data-backed, youth-targeted content on personal finance, salary negotiation, budgeting and building financial independence early.",tags:["Personal Finance","Entrepreneurship","Money Books"],rank:9},
+    {name:"Businessman Hindi Mindset",handle:"@businessman_hindi_mindset",yt:"—",ig:"—",platforms:["IG"],color:"#00C48C",desc:"Hindi-language business and finance channel breaking down entrepreneurship, investment philosophy and mindset strategies for India's Tier-2 and Tier-3 city audiences.",tags:["Hindi Business","Entrepreneurship","Tier-2 India"],rank:10},
+  ],
+  tech: [
+    {name:"Gaurav Chaudhary (PhoneBuff)",handle:"@technicalguruji",yt:"—",ig:"—",platforms:["YT","IG"],color:"#2E6BFF",desc:"Technical Guruji — India's most-subscribed tech YouTuber with 23M+ subscribers. Makes technology simple in Hindi covering smartphone reviews, AI tools and gadget deep-dives.",tags:["Smartphones","Hindi Tech","AI Tools"],rank:1},
+    {name:"Shlok Srivastava",handle:"@techburner",yt:"—",ig:"—",platforms:["YT","IG"],color:"#2E6BFF",desc:"Tech Burner — blends humour with in-depth tech reviews. CNN-News18 Indian of the Year 2025. Known for making tech fun for younger audiences and launching his own consumer brand OWN.",tags:["Tech Reviews","Humour","Youth Tech"],rank:2},
+    {name:"Jai Arora",handle:"@tech_iela",yt:"—",ig:"—",platforms:["YT","IG"],color:"#2E6BFF",desc:"Tech creator covering budget smartphone reviews, accessory deep-dives and practical tech tips for Indian consumers who want the best value-for-money gadgets.",tags:["Budget Tech","Smartphones","Accessories"],rank:3},
+    {name:"Naman Deshmukh",handle:"@techplusgadgets",yt:"—",ig:"—",platforms:["YT","IG"],color:"#2E6BFF",desc:"Gadget reviewer and tech educator covering smartphones, laptops, smartwatches and emerging tech trends. Known for hands-on comparisons and honest buying guides for Indian audiences.",tags:["Gadgets","Laptops","Buying Guides"],rank:4},
+    {name:"Manoj Saru",handle:"@manajsaru",yt:"—",ig:"—",platforms:["YT","IG"],color:"#2E6BFF",desc:"Creator behind Technology Gyan — one of India's largest Hindi tech channels. Covers smartphone reviews, TV comparisons, Android tips and smart home guides for regional audiences.",tags:["Hindi Tech","TVs","Android Tips"],rank:5},
+  ],
+  fashion: [
+    {name:"Nagma Mirajkar",handle:"@nagmamirajkar",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF3D71",desc:"Actor-turned-content creator and one of Instagram India's most-followed fashion voices. Known for vibrant styling, affordable fashion hauls, beauty routines and energetic Reels.",tags:["Fashion Hauls","Beauty","Lifestyle"],rank:1},
+    {name:"Karron S Dhinggra",handle:"@theformaledit",yt:"—",ig:"—",platforms:["IG"],color:"#FF3D71",desc:"India's leading men's fashion creator. Covers formal wear, office styling, grooming routines and everyday fashion for the modern Indian professional man.",tags:["Men's Fashion","Formal Wear","Grooming"],rank:2},
+    {name:"Komal Pandey",handle:"@komalpandey",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF3D71",desc:"Fashion filmmaker and stylist known for editorial-quality fashion storytelling. Covers high-fashion looks, sustainable styling, body positivity and creative Reels that push Indian fashion forward.",tags:["Fashion Films","Editorial","Sustainability"],rank:3},
+    {name:"Kritika Khurana",handle:"@thatbohogirl",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF3D71",desc:"That Boho Girl — one of India's original fashion bloggers turned creator. Covers bohemian aesthetics, travel fashion, beauty and building a personal style identity.",tags:["Boho Fashion","Travel Style","Beauty"],rank:4},
+    {name:"Ritik Mahajan",handle:"@ritikmahajan",yt:"—",ig:"—",platforms:["IG"],color:"#FF3D71",desc:"Men's lifestyle and fashion creator covering outfit ideas, grooming hacks, fitness aesthetics and the modern Indian man's wardrobe for Gen-Z and millennial audiences.",tags:["Men's Lifestyle","Grooming","Gen-Z Fashion"],rank:5},
+    {name:"Sakshi Shrivas",handle:"@sakshishrivas",yt:"—",ig:"—",platforms:["IG"],color:"#FF3D71",desc:"Fashion and lifestyle creator known for accessible, everyday styling content. Covers outfit ideas, thrift and budget fashion, beauty hacks and relatable Indian girl content.",tags:["Everyday Fashion","Budget Style","Beauty"],rank:6},
+    {name:"Masoom Minawala",handle:"@masoomminawala",yt:"—",ig:"—",platforms:["IG"],color:"#FF3D71",desc:"India's first fashion creator to attend Paris Fashion Week. Covers luxury fashion, international trends, brand collaborations and represents Indian fashion on global stages.",tags:["Luxury Fashion","Paris Fashion Week","Global Style"],rank:7},
+    {name:"Sakshi Sindwani",handle:"@sakshisindwani",yt:"—",ig:"—",platforms:["IG"],color:"#FF3D71",desc:"Plus-size fashion creator and body positivity advocate. Known for celebrating all body types with bold, confident styling, affordable outfit ideas and empowering content for every size.",tags:["Plus-Size Fashion","Body Positivity","Inclusive Style"],rank:8},
+  ],
+  food: [
+    {name:"Pooja Dhingra",handle:"@poojadhingra",yt:"—",ig:"—",platforms:["IG"],color:"#FF8A00",desc:"India's first macaron maker and pastry chef-entrepreneur. Founder of Le15 Patisserie. Covers French patisserie techniques, dessert recipes, baking tips and building a food business in India.",tags:["Patisserie","Baking","Food Business"],rank:1},
+    {name:"Vikas Khanna",handle:"@vikaskhannagroup",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"Michelin-starred chef, filmmaker and humanitarian. Covers Indian heritage cuisine, restaurant culture, global culinary experiences and the stories behind traditional Indian recipes.",tags:["Michelin Star","Heritage Cuisine","Global Food"],rank:2},
+    {name:"Shipra Khanna",handle:"@masterchefshiprakhanna",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"MasterChef India Season 2 winner. Covers restaurant-quality recipes made simple at home, festive cooking, health-conscious Indian meals and culinary travel across India.",tags:["MasterChef","Indian Recipes","Festive Food"],rank:3},
+    {name:"Ranveer Brar",handle:"@ranveer.brar",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"Celebrity chef, MasterChef India judge and food philosopher. Known for deep culinary storytelling, traditional Indian recipes, ingredient history and making cooking feel like an art form.",tags:["MasterChef Judge","Traditional Recipes","Culinary Stories"],rank:4},
+    {name:"Kunal Kapur",handle:"@chefkunal",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"Celebrity chef and TV host. Covers simple yet impressive Indian and international recipes, cooking techniques, kitchen tips and food culture for home cooks across India.",tags:["Celebrity Chef","Home Cooking","Food Culture"],rank:5},
+    {name:"Hebbar's Kitchen",handle:"@hebbarskitchen",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"India's most trusted vegetarian recipe channel. Covers South Indian, North Indian and fusion recipes with step-by-step visual guides. Trusted by millions of home cooks daily.",tags:["Vegetarian","South Indian","Recipe Guides"],rank:6},
+    {name:"Shivesh Bhatia",handle:"@shivesh17",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"Baking author and content creator known for stunning dessert photography and accessible baking recipes. Covers cakes, cookies, brownies and no-bake desserts for Indian home bakers.",tags:["Baking","Desserts","Food Photography"],rank:7},
+    {name:"Eshaan Nagpal (Indian Bawarchi)",handle:"@indian_bawarchi",yt:"—",ig:"—",platforms:["IG"],color:"#FF8A00",desc:"Street food explorer and recipe creator celebrating India's regional food culture. Covers dhabha-style recipes, street food recreations and the lesser-known culinary gems of Indian cuisine.",tags:["Street Food","Regional Indian","Dhabha Recipes"],rank:8},
+    {name:"Pankaj Bhadouria",handle:"@masterchefpankajbhadouria",yt:"—",ig:"—",platforms:["YT","IG"],color:"#FF8A00",desc:"MasterChef India Season 1 winner. Runs the Pankaj Bhadouria Culinary Academy. Covers homestyle Indian recipes, cooking school tips, healthy swaps and budget meal ideas.",tags:["MasterChef","Cooking Academy","Homestyle Recipes"],rank:9},
+    {name:"Amar Sirohi (Foodie Incarnate)",handle:"@foodie_incarnate",yt:"—",ig:"—",platforms:["IG"],color:"#FF8A00",desc:"Food reviewer and restaurant critic exploring India's culinary landscape. Covers restaurant reviews, food trails, hidden gem eateries and the stories behind India's most beloved food spots.",tags:["Food Reviews","Restaurant Critic","Food Trails"],rank:10},
+  ],
+  gaming: [
+    {name:"Techno Gamerz (Ujjwal Chaurasia)",handle:"@technogamerz",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"India's biggest gaming YouTuber with 40M+ subscribers. Known for GTA 5 and Minecraft gameplay, entertaining commentary and being a trailblazer for India's gaming creator ecosystem.",tags:["GTA 5","Minecraft","Gaming Commentary"],rank:1},
+    {name:"Total Gaming (Ajay)",handle:"@totalgaming_official",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"One of India's top Free Fire and BGMI content creators. Known for high-energy gameplay, Pro tips and building a massive Hindi-speaking gaming community from Surat.",tags:["Free Fire","BGMI","Hindi Gaming"],rank:2},
+    {name:"Dynamo Gaming (Aadi Sawant)",handle:"@dynamo__gaming",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"Pioneer of PUBG Mobile content in India. Known for aggressive gameplay, clutch moments and mentoring the next generation of Indian esports talent through community tournaments.",tags:["PUBG Mobile","Esports","Gaming Community"],rank:3},
+    {name:"Mortal (Naman Mathur)",handle:"@ig_mortal",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"One of India's most respected esports players and content creators. Former S8UL co-founder. Covers BGMI, gaming commentary, lifestyle and Indian esports industry insights.",tags:["BGMI","Esports","S8UL"],rank:4},
+    {name:"As Gaming (Sahil Rana)",handle:"@asgaming",yt:"—",ig:"—",platforms:["IG"],color:"#A855F7",desc:"Free Fire content creator and esports personality covering competitive gameplay, creator vlogs and gaming culture for India's mobile-first gaming audience.",tags:["Free Fire","Mobile Gaming","Esports"],rank:5},
+    {name:"GamerFleet (Anshu Bisht)",handle:"@gamerfleet",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"Popular Minecraft and GTA creator known for roleplay servers, gaming challenges and entertaining collaborative content with India's top gaming creators.",tags:["Minecraft","GTA RP","Gaming Collab"],rank:6},
+    {name:"Kronten Gaming (Chetan Chandgude)",handle:"@krontengaming",yt:"—",ig:"—",platforms:["IG"],color:"#A855F7",desc:"BGMI and gaming lifestyle creator. Known for high-skill competitive content, team gameplay with leading Indian esports squads and behind-the-scenes gaming life vlogs.",tags:["BGMI","Competitive Gaming","Gaming Vlogs"],rank:7},
+    {name:"Desi Gamers (Amit Sharma)",handle:"@desigamers",yt:"—",ig:"—",platforms:["YT","IG"],color:"#A855F7",desc:"Free Fire and reaction content creator. One of the most energetic gaming personalities in India with a loyal community built around fun, accessibility and regional gaming culture.",tags:["Free Fire","Reaction Content","Regional Gaming"],rank:8},
+    {name:"Two Side Gamers",handle:"@twosidegamers",yt:"—",ig:"—",platforms:["IG"],color:"#A855F7",desc:"Duo gaming channel covering Free Fire, BGMI and gaming challenges. Known for fun collaborative format, couple gaming dynamic and high-energy content that resonates with young Indian audiences.",tags:["Duo Gaming","Free Fire","Gaming Challenges"],rank:9},
+  ],
+  fitness: [
+    {name:"Simran Chopra",handle:"@simrun.chopra",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00BBD6",desc:"India's leading nutrition and running coach. Covers mindful eating, marathon training, body recomposition and sustainable fitness habits — with a science-backed, no-fad approach.",tags:["Nutrition","Running","Mindful Eating"],rank:1},
+    {name:"Pooja Makhija",handle:"@poojamakhija",yt:"—",ig:"—",platforms:["IG"],color:"#00BBD6",desc:"Celebrity nutritionist and author. Has worked with Bollywood stars. Covers evidence-based nutrition, Indian diet tips, gut health and making healthy eating practical for Indian families.",tags:["Celebrity Nutrition","Gut Health","Indian Diet"],rank:2},
+    {name:"Namrata Purohit",handle:"@namratapurohit",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00BBD6",desc:"India's leading Pilates instructor. Youngest globally certified Peak Pilates instructor. Covers Pilates for all levels, pre/post-natal fitness and mind-body wellness.",tags:["Pilates","Pre-Natal Fitness","Mind-Body Wellness"],rank:3},
+    {name:"Luke Coutinho",handle:"@lukecoutinho",yt:"—",ig:"—",platforms:["IG"],color:"#00BBD6",desc:"Integrative lifestyle specialist covering holistic health — cancer support, intermittent fasting, sleep quality and treating root causes rather than symptoms through lifestyle medicine.",tags:["Holistic Health","Intermittent Fasting","Lifestyle Medicine"],rank:4},
+    {name:"Rohit Khatri",handle:"@rohitkhatri",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00BBD6",desc:"India's most-followed male fitness trainer on social media. Covers weight training, fat loss, supplement guidance and no-nonsense gym advice for Indian men building their fitness journey.",tags:["Weight Training","Fat Loss","Gym Advice"],rank:5},
+    {name:"Varun Verma",handle:"@varunverma",yt:"—",ig:"—",platforms:["IG"],color:"#00BBD6",desc:"Fitness creator and online coach covering functional fitness, calisthenics, body transformation and helping everyday Indians build sustainable workout habits without expensive gym memberships.",tags:["Functional Fitness","Calisthenics","Transformations"],rank:6},
+    {name:"Yasmin Karachiwala",handle:"@yasminkarachiwala",yt:"—",ig:"—",platforms:["YT","IG"],color:"#00BBD6",desc:"Celebrity fitness trainer and India's most sought-after Pilates expert. Has trained Katrina Kaif and Deepika Padukone. Covers Pilates, strength training and balanced fitness for women.",tags:["Celebrity Fitness","Pilates","Women's Fitness"],rank:7},
+    {name:"Nitesh Soni",handle:"@niteshsoniy",yt:"—",ig:"—",platforms:["IG"],color:"#00BBD6",desc:"Fitness educator and natural bodybuilder covering gym training, nutrition science, supplement myths and building a strong physique through discipline and smart programming.",tags:["Bodybuilding","Nutrition Science","Natural Fitness"],rank:8},
+    {name:"Soniya Singh Khatri",handle:"@fitgirl_08",yt:"—",ig:"—",platforms:["IG"],color:"#00BBD6",desc:"Female fitness creator covering fat loss, strength training for women, diet plans and motivating everyday Indian women to start and sustain their fitness journey.",tags:["Women's Fitness","Fat Loss","Strength Training"],rank:9},
+  ],
+};
+function getInitials(name){return name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase();}
+
+/* ════════════════════════════════════════════════════════════════════
+   LIVE DATA — YouTube Data API v3
+   ────────────────────────────────────────────────────────────────────
+   Set your free API key below to pull REAL profile photos, channel URLs,
+   and live subscriber counts for every creator with a known handle.
+
+   HOW TO GET A KEY (free, ~3 min):
+   1. Go to  https://console.cloud.google.com/
+   2. Create a project (or pick one) → APIs & Services → Library
+   3. Search "YouTube Data API v3" → Enable
+   4. APIs & Services → Credentials → Create credentials → API key
+   5. Paste it below. (Optional: restrict it to YouTube Data API + your domain.)
+
+   Free quota = 10,000 units/day. Each creator costs 1 unit, so all 120
+   load for ~120 units/day. Results are cached in the browser for 7 days,
+   so the API is only hit once per creator per week.
+   ════════════════════════════════════════════════════════════════════ */
+const YT_API_KEY = "";   // ◄── PASTE YOUR YOUTUBE DATA API v3 KEY HERE
+
+/* Known YouTube handles per creator (used to query the API).
+   Derived from the verified URLs; add more as you confirm them. */
+const YT_HANDLE = {
+  // Finance
+  "Shivam Malik":"shivammalik09",
+  "Abhishek Kar":"abhishekkar",
+  "Sharan Hegde":"financewithsharan",
+  "Ankur Warikoo":"warikoo",
+  // Tech
+  "Gaurav Chaudhary (PhoneBuff)":"TechnicalGuruji",
+  "Shlok Srivastava":"TechBurner",
+  "Jai Arora":"techielaofficial",
+  "Naman Deshmukh":"TechPlusGadgetsyt",
+  "Manoj Saru":"TechnologyGyan",
+  // Fashion
+  "Nagma Mirajkar":"nagmamirajkar",
+  "Komal Pandey":"komalpandey",
+  "Kritika Khurana":"thatbohogirl",
+  "Sakshi Sindwani":"sakshisindwani",
+  "Masoom Minawala":"masoomminawala",
+  // Food
+  "Vikas Khanna":"vikaskhannagroup",
+  "Shipra Khanna":"MasterChefShipraKhanna",
+  "Ranveer Brar":"RanveerBrar",
+  "Kunal Kapur":"ChefKunalKapur",
+  "Hebbar's Kitchen":"hebbars.kitchen",
+  "Shivesh Bhatia":"shivesh17",
+  "Pankaj Bhadouria":"PankajBhadouria",
+  // Gaming
+  "Techno Gamerz (Ujjwal Chaurasia)":"technogamerz",
+  "Total Gaming (Ajay)":"TotalGamingYT",
+  "Dynamo Gaming (Aadi Sawant)":"DynamoGaming",
+  "Mortal (Naman Mathur)":"MortaL",
+  "GamerFleet (Anshu Bisht)":"GamerFleet",
+  "Desi Gamers (Amit Sharma)":"DesiGamersYT",
+  // Fitness
+  "Simran Chopra":"simrunchopra",
+  "Namrata Purohit":"NamrataPurohit",
+  "Rohit Khatri":"rohitkhatri",
+  "Yasmin Karachiwala":"YasminKarachiwala",
+};
+
+const LIVE = {};                       // runtime cache: name -> {photo,url,subs,title}
+const CACHE_KEY = "trendora_live_v1";
+const CACHE_TTL = 7*24*60*60*1000;     // 7 days
+
+function loadCache(){
+  try{
+    const raw = JSON.parse(localStorage.getItem(CACHE_KEY) || "{}");
+    if(raw.t && (Date.now()-raw.t) < CACHE_TTL && raw.data){ Object.assign(LIVE, raw.data); return true; }
+  }catch(e){}
+  return false;
+}
+function saveCache(){
+  try{ localStorage.setItem(CACHE_KEY, JSON.stringify({t:Date.now(), data:LIVE})); }catch(e){}
+}
+
+// Pretty-print a raw subscriber number → "6.4M", "129K"
+function fmtCount(n){
+  n = +n;
+  if(n>=1e7) return (n/1e7).toFixed(1).replace(/\.0$/,'')+'Cr';
+  if(n>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M';
+  if(n>=1e3) return (n/1e3).toFixed(0)+'K';
+  return ''+n;
+}
+
+// Fetch one creator's channel data from the YouTube API
+async function fetchChannel(name){
+  const handle = YT_HANDLE[name];
+  if(!handle || !YT_API_KEY) return null;
+  const url = `https://www.googleapis.com/youtube/v3/channels`
+            + `?part=snippet,statistics&forHandle=${encodeURIComponent(handle)}&key=${YT_API_KEY}`;
+  try{
+    const res = await fetch(url);
+    if(!res.ok) return null;
+    const data = await res.json();
+    const item = data.items && data.items[0];
+    if(!item) return null;
+    const th = item.snippet.thumbnails;
+    return {
+      photo: (th.high || th.medium || th.default).url,
+      url:   "https://www.youtube.com/channel/" + item.id,
+      subs:  item.statistics && item.statistics.subscriberCount ? fmtCount(item.statistics.subscriberCount) : null,
+      title: item.snippet.title,
+    };
+  }catch(e){ return null; }
+}
+
+// Load live data for all creators that have a handle, then re-render
+async function hydrateLiveData(){
+  if(!YT_API_KEY) return;                 // no key → stay on SVG avatars + verified links
+  loadCache();
+  const names = Object.keys(YT_HANDLE).filter(n => !LIVE[n]);  // only fetch uncached
+  // fetch sequentially-ish in small batches to be gentle on quota
+  for(const name of names){
+    const d = await fetchChannel(name);
+    if(d) LIVE[name] = d;
+  }
+  saveCache();
+  render(getCreators(currentDomain));     // refresh UI with photos + live counts
+}
+
+/* ── VERIFIED YouTube channel URLs (manually confirmed) ── */
+const YT_VERIFIED = {
+  // Finance
+  "Shivam Malik":           "https://www.youtube.com/@shivammalik09",
+  "Abhishek Kar":           "https://www.youtube.com/@abhishekkar",
+  "Sharan Hegde":           "https://www.youtube.com/@financewithsharan",
+  "Ankur Warikoo":          "https://www.youtube.com/@warikoo",
+  // Tech
+  "Gaurav Chaudhary (PhoneBuff)":"https://www.youtube.com/TechnicalGuruji",
+  "Shlok Srivastava":       "https://www.youtube.com/@TechBurner",
+  "Jai Arora":              "https://www.youtube.com/@techielashorts",
+  "Naman Deshmukh":         "https://www.youtube.com/@TechPlusGadgetsyt",
+  "Manoj Saru":             "https://www.youtube.com/@TechnologyGyan",
+  // Fashion
+  "Nagma Mirajkar":         "https://www.youtube.com/@nagmamirajkar",
+  "Komal Pandey":           "https://www.youtube.com/channel/UCx2JNgWJPPTBODN-U56O-tg",
+  "Kritika Khurana":        "https://www.youtube.com/@thatbohogirl",
+  // Food
+  "Vikas Khanna":           "https://www.youtube.com/@vikaskhannagroup",
+  "Shipra Khanna":          "https://www.youtube.com/@MasterChefShipraKhanna",
+  "Ranveer Brar":           "https://www.youtube.com/@RanveerBrar",
+  "Kunal Kapur":            "https://www.youtube.com/@ChefKunalKapur",
+  "Hebbar's Kitchen":       "https://www.youtube.com/@hebbars.kitchen",
+  "Shivesh Bhatia":         "https://www.youtube.com/@shivesh17",
+  "Pankaj Bhadouria":       "https://www.youtube.com/@PankajBhadouria",
+  // Gaming
+  "Techno Gamerz (Ujjwal Chaurasia)":"https://www.youtube.com/@technogamerz",
+  "Total Gaming (Ajay)":    "https://www.youtube.com/@TotalGamingYT",
+  "Dynamo Gaming (Aadi Sawant)":"https://www.youtube.com/@DynamoGaming",
+  "Mortal (Naman Mathur)":  "https://www.youtube.com/@MortaL",
+  "GamerFleet (Anshu Bisht)":"https://www.youtube.com/@GamerFleet",
+  "Desi Gamers (Amit Sharma)":"https://www.youtube.com/@DesiGamersYT",
+  // Fitness
+  "Simran Chopra":          "https://www.youtube.com/@simrunchopra",
+  "Namrata Purohit":        "https://www.youtube.com/@NamrataPurohit",
+  "Rohit Khatri":           "https://www.youtube.com/@rohitkhatri",
+  "Yasmin Karachiwala":     "https://www.youtube.com/@YasminKarachiwala",
+};
+
+/* ── VERIFIED Instagram profile URLs (manually confirmed) ── */
+const IG_VERIFIED = {
+  "Shivam Malik":"https://www.instagram.com/shivammalik09/",
+  "Abhishek Kar":"https://www.instagram.com/abhishekkarofficial/",
+  "Sarthak Ahuja":"https://www.instagram.com/casarthakahuja/",
+  "Sharan Hegde":"https://www.instagram.com/financewithsharan/",
+  "Neha Nagar":"https://www.instagram.com/iamnehanagar/",
+  "AISM India":"https://www.instagram.com/aismindia/",
+  "Sakchi Jain":"https://www.instagram.com/ca.sakchijain/",
+  "Groww.in":"https://www.instagram.com/groww_official/",
+  "Ankur Warikoo":"https://www.instagram.com/ankurwarikoo/",
+  "Businessman Hindi Mindset":"https://www.instagram.com/businessman_hindi_mindset/",
+  "Gaurav Chaudhary (PhoneBuff)":"https://www.instagram.com/technicalguruji/",
+  "Shlok Srivastava":"https://www.instagram.com/techburner/",
+  "Jai Arora":"https://www.instagram.com/tech_iela/",
+  "Naman Deshmukh":"https://www.instagram.com/techplusgadgets/",
+  "Manoj Saru":"https://www.instagram.com/manajsaru/",
+  "Nagma Mirajkar":"https://www.instagram.com/nagmamirajkar/",
+  "Karron S Dhinggra":"https://www.instagram.com/theformaledit/",
+  "Komal Pandey":"https://www.instagram.com/komalpandey/",
+  "Kritika Khurana":"https://www.instagram.com/thatbohogirl/",
+  "Ritik Mahajan":"https://www.instagram.com/ritikmahajan/",
+  "Sakshi Shrivas":"https://www.instagram.com/sakshishrivas/",
+  "Masoom Minawala":"https://www.instagram.com/masoomminawala/",
+  "Sakshi Sindwani":"https://www.instagram.com/sakshisindwani/",
+  "Pooja Dhingra":"https://www.instagram.com/poojadhingra/",
+  "Vikas Khanna":"https://www.instagram.com/vikaskhannagroup/",
+  "Shipra Khanna":"https://www.instagram.com/masterchefshiprakhanna/",
+  "Ranveer Brar":"https://www.instagram.com/ranveer.brar/",
+  "Kunal Kapur":"https://www.instagram.com/chefkunal/",
+  "Hebbar's Kitchen":"https://www.instagram.com/hebbarskitchen/",
+  "Shivesh Bhatia":"https://www.instagram.com/shivesh17/",
+  "Eshaan Nagpal (Indian Bawarchi)":"https://www.instagram.com/indian_bawarchi/",
+  "Pankaj Bhadouria":"https://www.instagram.com/masterchefpankajbhadouria/",
+  "Amar Sirohi (Foodie Incarnate)":"https://www.instagram.com/foodie_incarnate/",
+  "Techno Gamerz (Ujjwal Chaurasia)":"https://www.instagram.com/technogamerz/",
+  "Total Gaming (Ajay)":"https://www.instagram.com/totalgaming_official/",
+  "Dynamo Gaming (Aadi Sawant)":"https://www.instagram.com/dynamo__gaming/",
+  "Mortal (Naman Mathur)":"https://www.instagram.com/ig_mortal/",
+  "As Gaming (Sahil Rana)":"https://www.instagram.com/asgaming/",
+  "GamerFleet (Anshu Bisht)":"https://www.instagram.com/gamerfleet/",
+  "Kronten Gaming (Chetan Chandgude)":"https://www.instagram.com/krontengaming/",
+  "Desi Gamers (Amit Sharma)":"https://www.instagram.com/desigamers/",
+  "Two Side Gamers":"https://www.instagram.com/twosidegamers/",
+  "Simran Chopra":"https://www.instagram.com/simrun.chopra/",
+  "Pooja Makhija":"https://www.instagram.com/poojamakhija/",
+  "Namrata Purohit":"https://www.instagram.com/namratapurohit/",
+  "Luke Coutinho":"https://www.instagram.com/lukecoutinho/",
+  "Rohit Khatri":"https://www.instagram.com/rohitkhatri/",
+  "Varun Verma":"https://www.instagram.com/varunverma/",
+  "Yasmin Karachiwala":"https://www.instagram.com/yasminkarachiwala/",
+  "Nitesh Soni":"https://www.instagram.com/niteshsoniy/",
+  "Soniya Singh Khatri":"https://www.instagram.com/fitgirl_08/",
+};
+
+/* For unverified creators, we link to a YouTube/Instagram search — always correct, never 404 */
+function ytUrl(c) {
+  return (LIVE[c.name] && LIVE[c.name].url)
+    || YT_VERIFIED[c.name]
+    || "https://www.youtube.com/results?search_query=" + encodeURIComponent(c.name + " India");
+}
+function igUrl(c) {
+  return IG_VERIFIED[c.name]
+    || "https://www.instagram.com/explore/tags/" + encodeURIComponent(c.name.replace(/\s+/g,'').toLowerCase())
+    || "https://www.google.com/search?q=" + encodeURIComponent(c.name + " Instagram");
+}
+/* For all unverified IG links use a Google search — most reliable fallback */
+function igUrlSafe(c) {
+  return IG_VERIFIED[c.name]
+    || "https://www.google.com/search?q=" + encodeURIComponent(c.name + " Instagram India creator");
+}
+// Domain colour palettes — each avatar gets a 2-stop gradient matching its domain
+const DOMAIN_GRAD = {
+  finance:  ['#00C48C','#00E8A8'],
+  tech:     ['#2E6BFF','#6EA0FF'],
+  fashion:  ['#FF3D71','#FF8AAB'],
+  food:     ['#FF8A00','#FFB347'],
+  gaming:   ['#A855F7','#C084FC'],
+  fitness:  ['#00BBD6','#4DD9EE'],
+  all:      ['#7C3AED','#A78BFA'],
+};
+function makeAvatar(c) {
+  const initials = c.name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase();
+  const grad = DOMAIN_GRAD[c._domain] || DOMAIN_GRAD.all;
+  const id = 'g' + Math.abs(c.name.split('').reduce((a,ch)=>a+ch.charCodeAt(0),0));
+  // Inline SVG: rounded square with gradient + drop-shadow + crisp initials
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58">
+    <defs>
+      <linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${grad[0]}"/>
+        <stop offset="100%" stop-color="${grad[1]}"/>
+      </linearGradient>
+      <filter id="s${id}" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="${grad[0]}" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+    <rect width="58" height="58" rx="14" fill="url(#${id})" filter="url(#s${id})"/>
+    <text x="29" y="38" font-family="Space Grotesk,Inter,sans-serif" font-size="21" font-weight="700"
+      fill="white" text-anchor="middle" letter-spacing="-0.5">${initials}</text>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+const YT_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5A3 3 0 0 0 23 16.5 31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5ZM9.8 15.3V8.7l5.7 3.3Z"/></svg>';
+const IG_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4Zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.8-11.1a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5Z"/></svg>';
+
+/* Hand-built animated domain glyphs. Idea-first: shape reads instantly, animates on hover/active. */
+const ICONS = {
+  all:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><g data-orbit><circle cx="24" cy="24" r="17" stroke-dasharray="4 6"/></g><circle cx="24" cy="24" r="6" fill="currentColor" stroke="none" data-pulse/><circle cx="24" cy="7" r="3" fill="currentColor" stroke="none"/><circle cx="41" cy="24" r="3" fill="currentColor" stroke="none"/><circle cx="24" cy="41" r="3" fill="currentColor" stroke="none"/><circle cx="7" cy="24" r="3" fill="currentColor" stroke="none"/></svg>',
+  finance:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect data-grow x="9" y="26" width="6" height="13" rx="2" fill="currentColor" stroke="none"/><rect data-grow x="21" y="20" width="6" height="19" rx="2" fill="currentColor" fill-opacity=".55" stroke="none"/><rect data-grow x="33" y="13" width="6" height="26" rx="2" fill="currentColor" stroke="none"/><path d="M9 16l9-6 7 4 14-9" data-draw/><path d="M40 5v6h-6"/></svg>',
+  tech:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><rect x="14" y="14" width="20" height="20" rx="4" fill="currentColor" fill-opacity=".12"/><g data-spin><rect x="20" y="20" width="8" height="8" rx="2" fill="currentColor" stroke="none"/></g><path d="M19 14V8M29 14V8M19 40v-6M29 40v-6M14 19H8M14 29H8M40 19h-6M40 29h-6"/></svg>',
+  fashion:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6l-6 10h8v2c0 3 2 5 6 5s6-2 6-5v-2h8L32 6" fill="currentColor" fill-opacity=".13"/><path data-bounce d="M24 23v16"/><path d="M18 39h12"/><circle cx="24" cy="10" r="3" fill="currentColor" stroke="none" data-pulse/></svg>',
+  food:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8v10c0 5 4 8 8 8s8-3 8-8V8" fill="currentColor" fill-opacity=".12"/><line x1="12" y1="8" x2="12" y2="18"/><line x1="16" y1="8" x2="16" y2="18"/><line x1="20" y1="8" x2="20" y2="18"/><path data-draw d="M32 8c0 0 8 4 8 14"/><path d="M36 22v18"/></svg>',
+  gaming:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="22" rx="8" fill="currentColor" fill-opacity=".12"/><path data-draw d="M18 26h4m-2-2v4"/><circle cx="30" cy="24" r="1.5" fill="currentColor" stroke="none" data-pulse/><circle cx="34" cy="27" r="1.5" fill="currentColor" stroke="none"/></svg>',
+  fitness:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="20" width="5" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="40" y="20" width="5" height="8" rx="2" fill="currentColor" stroke="none"/><rect x="8" y="22" width="7" height="4" rx="2" fill="currentColor" fill-opacity=".5" stroke="none"/><rect x="33" y="22" width="7" height="4" rx="2" fill="currentColor" fill-opacity=".5" stroke="none"/><rect x="15" y="17" width="18" height="14" rx="3" fill="currentColor" fill-opacity=".15"/><g data-bounce><rect x="17" y="19" width="14" height="10" rx="2" fill="currentColor" stroke="none"/></g></svg>',
+};
+
+const DOMAIN_META = {
+  all:     {label:"All",     var:"--c-all", title:"All Creators",                    desc:"India's complete directory of top content creators across every domain."},
+  finance: {label:"Finance", var:"--c-fin", title:"Finance & Investing",             desc:"India's top voices on personal finance, markets, budgeting and wealth creation."},
+  tech:    {label:"Tech",    var:"--c-tech",title:"Tech & Gadgets",                  desc:"India's most trusted tech reviewers — smartphones, AI tools, gadgets and more."},
+  fashion: {label:"Fashion", var:"--c-mkt", title:"Fashion & Lifestyle",             desc:"India's leading fashion creators covering style, beauty, grooming and lifestyle."},
+  food:    {label:"Food",    var:"--c-ops", title:"Food & Cooking",                  desc:"India's top chefs and food creators — recipes, restaurant reviews and culinary stories."},
+  gaming:  {label:"Gaming",  var:"--c-hr",  title:"Gaming & Esports",               desc:"India's biggest gaming creators — gameplay, esports, commentary and gaming culture."},
+  fitness: {label:"Fitness", var:"--c-pm",  title:"Fitness & Wellness",             desc:"India's top fitness trainers and nutritionists — workouts, nutrition and holistic health."},
+};
+const ORDER = ['all','finance','tech','fashion','food','gaming','fitness'];
+
+function getCreators(domain){
+  if(domain==='all') return Object.entries(CREATORS).flatMap(([d,l])=>l.map(c=>({...c,_domain:d})));
+  return CREATORS[domain].map(c=>({...c,_domain:domain}));
+}
+function cssVar(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim();}
+
+function renderCreator(c){
+  const accent = cssVar(DOMAIN_META[c._domain]?.var || '--c-all');
+  const isTop3 = c.rank<=3;
+  const platTags = c.platforms.map(p=>{
+    const isYT = p==='YT';
+    const url = isYT ? ytUrl(c) : igUrlSafe(c);
+    const verified = isYT ? !!YT_VERIFIED[c.name] : !!IG_VERIFIED[c.name];
+    const cls = isYT ? 'yt-tag' : 'ig-tag';
+    const svg = isYT ? YT_SVG : IG_SVG;
+    const label = isYT ? 'YouTube' : 'Instagram';
+    const tip = verified ? `Visit ${c.name} on ${label}` : `Search ${c.name} on ${label}`;
+    return `<a class="platform-tag ${cls}" href="${url}" target="_blank" rel="noopener" title="${tip}" aria-label="${tip}">${svg}${label}</a>`;
+  }).join('');
+  const chips = c.tags.map(t=>`<span class="chip">${t}</span>`).join('');
+  const live = LIVE[c.name];
+  const ytSubs = (live && live.subs) ? live.subs : c.yt;
+  const metrics = c.platforms.includes('YT')&&c.platforms.includes('IG')
+    ? `<div class="metric"><div class="metric-val">${ytSubs}</div><div class="metric-lbl">YT subscribers</div></div><div class="metric"><div class="metric-val">${c.ig}</div><div class="metric-lbl">IG followers</div></div>`
+    : c.platforms.includes('YT')
+    ? `<div class="metric"><div class="metric-val">${ytSubs}</div><div class="metric-lbl">YT subscribers</div></div>`
+    : `<div class="metric"><div class="metric-val">${c.ig}</div><div class="metric-lbl">IG followers</div></div>`;
+  // Real photo from YouTube API if we have it; SVG initials avatar as fallback
+  const fallback = makeAvatar(c);
+  const photoSrc = (live && live.photo) ? live.photo : fallback;
+  const verifiedDot = (live && live.photo) ? '<span class="live-dot" title="Live photo from YouTube"></span>' : '';
+  return `<article class="creator-card${isTop3?' top3':''}" style="--card-accent:${accent}" itemscope itemtype="https://schema.org/Person" aria-label="${c.name}, ${c.handle}">
+    <div class="rank-badge">${isTop3?'★ ':'#'}${c.rank}</div>
+    <div class="creator-card-top">
+      <div class="avatar-wrap">
+        <img class="avatar-img" src="${photoSrc}" alt="${c.name}" itemprop="image" width="58" height="58"
+             referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fallback}'">
+        ${verifiedDot}
+      </div>
+      <div class="creator-info">
+        <div class="creator-name" itemprop="name">${c.name}</div>
+        <div class="creator-handle" itemprop="alternateName">${c.handle}</div>
+        <div class="creator-platforms">${platTags}</div>
+      </div>
+    </div>
+    <p class="creator-desc" itemprop="description">${c.desc}</p>
+    <div class="creator-chips">${chips}</div>
+    <div class="creator-metrics">${metrics}</div>
+  </article>`;
+}
+
+let currentDomain='all';
+
+function buildRail(){
+  const rail=document.getElementById('domain-rail');
+  rail.innerHTML=ORDER.map(d=>{
+    const m=DOMAIN_META[d];
+    const count=getCreators(d).length;
+    return `<button class="dtile${d==='all'?' active':''}" role="tab" aria-selected="${d==='all'}"
+      style="--tile:var(${m.var});--tile-soft:var(${m.var}-soft)" onclick="switchTab('${d}',this)" aria-label="${m.title}">
+      <span class="dtile-ic" aria-hidden="true">${ICONS[d]}</span>
+      <span class="dtile-label">${m.label}</span>
+      <span class="dtile-count">${count}</span>
+    </button>`;
+  }).join('');
+}
+
+function setBanner(domain){
+  const m=DOMAIN_META[domain];
+  const c=cssVar(m.var);
+  document.getElementById('banner-title').textContent=m.title;
+  document.getElementById('banner-desc').textContent=m.desc;
+  // vivid gradient banner per-domain
+  document.getElementById('domain-banner').style.setProperty('--banner-bg',
+    `linear-gradient(110deg, ${c}, color-mix(in srgb, ${c} 55%, #6C3FF5))`);
+}
+
+function render(list){
+  const grid=document.getElementById('grid-main');
+  grid.innerHTML=list.map(renderCreator).join('');
+  document.getElementById('no-results').classList.toggle('show',list.length===0);
+  document.getElementById('count-pill').textContent=list.length+' creators';
+}
+
+function switchTab(domain,btn){
+  currentDomain=domain;
+  document.querySelectorAll('.dtile').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+  btn.classList.add('active');btn.setAttribute('aria-selected','true');
+  document.getElementById('globalSearch').value='';
+  setBanner(domain);
+  render(getCreators(domain));
+}
+
+function handleSearch(q){
+  const query=q.toLowerCase().trim();
+  const base=getCreators(currentDomain);
+  if(!query){render(base);return;}
+  render(base.filter(c=>
+    c.name.toLowerCase().includes(query)||
+    c.handle.toLowerCase().includes(query)||
+    c.desc.toLowerCase().includes(query)||
+    c.tags.some(t=>t.toLowerCase().includes(query))
+  ));
+}
+
+buildRail();
+setBanner('all');
+render(getCreators('all'));
+hydrateLiveData();   // pulls real photos + live subscriber counts if an API key is set
+
+/* ════════════ ROUTER ════════════
+   #/           → landing / about page
+   #/directory  → creator directory
+   #/auth       → sign in / sign up
+*/
+function showPage(name){
+  document.getElementById('page-home').hidden      = (name !== 'home');
+  document.getElementById('page-directory').hidden = (name !== 'directory');
+  document.getElementById('page-auth').hidden      = (name !== 'auth');
+  window.scrollTo(0,0);
+}
+
+function parseHash(){
+  const raw = location.hash.replace(/^#/, '');
+  const [path, query] = raw.split('?');
+  const params = new URLSearchParams(query || '');
+  return { path: path || '/', params };
+}
+
+function router(){
+  const { path, params } = parseHash();
+  if(path.startsWith('/directory')){
+    showPage('directory');
+    const d = params.get('d');
+    if(d && DOMAIN_META[d]){
+      const tile = [...document.querySelectorAll('.dtile')].find(b => b.getAttribute('aria-label')===DOMAIN_META[d].title);
+      currentDomain = d;
+      document.querySelectorAll('.dtile').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+      if(tile){ tile.classList.add('active'); tile.setAttribute('aria-selected','true'); }
+      setBanner(d);
+    }
+    const q = params.get('q');
+    const box = document.getElementById('globalSearch');
+    if(q && box){ box.value = q; currentDomain = currentDomain||'all'; render(getCreators(currentDomain)); handleSearch(q); }
+    else { render(getCreators(currentDomain)); }
+  } else if(path.startsWith('/auth')){
+    showPage('auth');
+    const mode = params.get('mode');
+    const role = params.get('role');
+    if(mode === 'signin') authMode('signin');
+    else { authMode('signup'); if(role) { pickRole(role); proceedWithRole(); } }
+  } else {
+    showPage('home');
+    const hashPart = location.hash.split('#')[2];
+    if(hashPart){ const el=document.getElementById(hashPart); if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),50); }
+  }
+}
+
+/* Landing-page actions */
+function goSearch(value){ const q=(value||'').trim(); location.hash='#/directory'+(q?('?q='+encodeURIComponent(q)):''); }
+function goDomain(d){ location.hash='#/directory?d='+encodeURIComponent(d); }
+
+/* ════════════ AUTH LOGIC ════════════ */
+const LEFT_CONTENT = {
+  creator: {
+    heading: 'Grow your creator\n<em>career in India.</em>',
+    desc: 'Trendora puts your profile in front of brands actively searching for creators in your niche. Get discovered, track your growth, and manage collaborations — all from one dashboard.',
+    bullets: ['Get discovered by brands searching your domain','Track YouTube + Instagram performance in one place','Receive and manage brand collab requests','Improve your Trendora Score to rank higher','Build credibility with a verified creator profile'],
+  },
+  brand: {
+    heading: 'Connect with India\'s\n<em>best creators.</em>',
+    desc: 'Stop scrolling through Instagram looking for the right creator. Trendora\'s ranked directory gives you instant access to India\'s top voices across Finance, Tech, Fashion, Food, Gaming and Fitness.',
+    bullets: ['Search ranked creators by domain and audience size','Filter by platform, follower count, and engagement','Connect directly and manage campaign briefs','Track campaign performance across creators','Reach the right audience at the right scale'],
+  },
+  default: {
+    heading: 'India\'s creator\n<em>intelligence platform.</em>',
+    desc: 'Whether you\'re a creator wanting to grow, or a brand looking to connect — Trendora is where India\'s creator economy comes together.',
+    bullets: ['120+ ranked Indian content creators','6 professional domains covered','YouTube + Instagram in one directory','Verified profiles and live data','Free to explore, powerful to use'],
+  },
+};
+
+let selectedRole = null;
+
+function renderLeftPanel(role){
+  const content = LEFT_CONTENT[role] || LEFT_CONTENT.default;
+  const lines = content.heading.split('\n');
+  const headingHtml = lines.map((l,i)=>i===0?l:`<br>${l}`).join('');
+  const icon = role==='creator'
+    ? `<div style="width:48px;height:48px;background:rgba(124,58,237,.2);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14"/><rect x="2" y="6" width="13" height="12" rx="3"/></svg></div>`
+    : role==='brand'
+    ? `<div style="width:48px;height:48px;background:rgba(245,158,11,.15);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>`
+    : '';
+  document.getElementById('auth-panel-content').innerHTML = `
+    ${icon}
+    <h2>${headingHtml}</h2>
+    <p>${content.desc}</p>
+    <ul class="role-bullets">${content.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>`;
+}
+
+function authMode(mode){
+  document.getElementById('form-signup').style.display = mode==='signup' ? '' : 'none';
+  document.getElementById('form-signin').style.display = mode==='signin' ? '' : 'none';
+  document.getElementById('tab-signup').classList.toggle('active', mode==='signup');
+  document.getElementById('tab-signin').classList.toggle('active', mode==='signin');
+  document.getElementById('tab-signup').setAttribute('aria-selected', String(mode==='signup'));
+  document.getElementById('tab-signin').setAttribute('aria-selected', String(mode==='signin'));
+  if(mode==='signin') renderLeftPanel('default');
+  else { showRolePick(); renderLeftPanel(selectedRole||'default'); }
+}
+
+function pickRole(role){
+  selectedRole = role;
+  document.getElementById('pick-creator').classList.toggle('selected', role==='creator');
+  document.getElementById('pick-brand').classList.toggle('selected', role==='brand');
+  renderLeftPanel(role);
+}
+
+function showRolePick(){
+  document.getElementById('signup-role-pick').style.display = '';
+  document.getElementById('signup-creator').style.display = 'none';
+  document.getElementById('signup-brand').style.display = 'none';
+  document.getElementById('signup-success').style.display = 'none';
+}
+
+function proceedWithRole(){
+  if(!selectedRole){ alert('Please select Creator or Brand to continue.'); return; }
+  document.getElementById('signup-role-pick').style.display = 'none';
+  document.getElementById('signup-creator').style.display = selectedRole==='creator' ? '' : 'none';
+  document.getElementById('signup-brand').style.display   = selectedRole==='brand'   ? '' : 'none';
+}
+
+function toggleChip(el){ el.classList.toggle('on'); }
+
+function showSuccess(role){
+  document.getElementById('signup-creator').style.display = 'none';
+  document.getElementById('signup-brand').style.display   = 'none';
+  document.getElementById('signup-role-pick').style.display = 'none';
+  document.getElementById('signup-success').style.display  = '';
+  if(role==='creator'){
+    document.getElementById('success-title').textContent = 'Creator profile created! 🎉';
+    document.getElementById('success-msg').textContent  = 'Welcome to Trendora. Your profile is under review and will be listed in the directory within 24 hours. Watch for brand collab requests in your dashboard.';
+  } else {
+    document.getElementById('success-title').textContent = 'Brand account ready! 🚀';
+    document.getElementById('success-msg').textContent  = 'Welcome to Trendora. Start browsing creators in the directory, or tell us about your first campaign and we\'ll match you with the right voices.';
+  }
+}
+
+function submitCreator(){
+  const email = document.getElementById('c-email').value.trim();
+  const name  = document.getElementById('c-fname').value.trim();
+  if(!name || !email){ alert('Please fill in your name and email.'); return; }
+  if(!email.includes('@')){ alert('Please enter a valid email.'); return; }
+  // Save to localStorage (placeholder for real API call)
+  const data = {
+    role:'creator', name, email,
+    ig: document.getElementById('c-ig').value.trim(),
+    yt: document.getElementById('c-yt').value.trim(),
+    domains: [...document.querySelectorAll('#c-domain-chips .on')].map(e=>e.textContent),
+    goals:   [...document.querySelectorAll('#c-goals .on')].map(e=>e.textContent),
+    ts: Date.now()
+  };
+  try{ localStorage.setItem('trendora_user', JSON.stringify(data)); }catch(e){}
+  showSuccess('creator');
+}
+
+function submitBrand(){
+  const email = document.getElementById('b-email').value.trim();
+  const brand = document.getElementById('b-brand').value.trim();
+  if(!brand || !email){ alert('Please fill in your brand name and email.'); return; }
+  if(!email.includes('@')){ alert('Please enter a valid work email.'); return; }
+  const data = {
+    role:'brand', brand, email,
+    fname: document.getElementById('b-fname').value.trim(),
+    industry: document.getElementById('b-industry').value,
+    website:  document.getElementById('b-website').value.trim(),
+    domains:  [...document.querySelectorAll('#b-domain-chips .on')].map(e=>e.textContent),
+    goals:    [...document.querySelectorAll('#b-goals .on')].map(e=>e.textContent),
+    ts: Date.now()
+  };
+  try{ localStorage.setItem('trendora_user', JSON.stringify(data)); }catch(e){}
+  showSuccess('brand');
+}
+
+function submitSignIn(){
+  const email = document.getElementById('si-email').value.trim();
+  const pass  = document.getElementById('si-pass').value;
+  if(!email || !pass){ alert('Please enter your email and password.'); return; }
+  // Placeholder — check localStorage mock
+  const saved = JSON.parse(localStorage.getItem('trendora_user')||'{}');
+  if(saved.email === email){
+    alert(`Welcome back, ${saved.name||saved.brand||''}! (Demo mode — real auth requires a backend)`);
+    location.hash = '#/';
+  } else {
+    alert('No account found with that email. Please sign up first.');
+  }
+}
+
+// Init auth page on load
+renderLeftPanel('default');
+
+window.addEventListener('hashchange', router);
+router();   // initial route
+</script>
+</body>
+</html>
