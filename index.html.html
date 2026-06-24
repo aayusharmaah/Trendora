@@ -322,6 +322,80 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
 .auth-success-cta{background:var(--violet);color:#fff;padding:12px 26px;border-radius:var(--radius-xs);font-weight:700;font-size:14px;cursor:pointer;border:none;font-family:inherit;transition:background .2s}
 .auth-success-cta:hover{background:var(--violet-mid)}
 
+/* ════ DASHBOARD PAGE #/dashboard ════ */
+.dash-page{max-width:1200px;margin:0 auto;padding:2rem clamp(1rem,4vw,2rem)}
+.dash-profile-header{background:var(--ink);border-radius:var(--radius);padding:1.8rem 2.2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.dash-profile-header::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#4C1D95 0%,transparent 60%);opacity:.5}
+.dph-avatar-wrap{position:relative;z-index:2;width:72px;height:72px;border-radius:50%;border:3px solid rgba(255,255,255,.2);overflow:hidden;flex-shrink:0;background:var(--violet);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#fff}
+.dph-avatar-wrap img{width:100%;height:100%;object-fit:cover}
+.dph-info{position:relative;z-index:2}
+.dph-name{font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:3px}
+.dph-handle{font-size:13px;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:10px}
+.dph-chips{display:flex;gap:7px;flex-wrap:wrap}
+.dph-chip{font-size:11px;font-weight:700;padding:3px 10px;border-radius:30px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.12)}
+.dph-role-chip{background:rgba(124,58,237,.4);color:#C4B5FD;border-color:rgba(124,58,237,.5)}
+.dph-score{position:relative;z-index:2;text-align:center}
+.dph-score-val{font-family:'Space Grotesk',sans-serif;font-size:2.6rem;font-weight:700;color:#C4B5FD;line-height:1}
+.dph-score-lbl{font-size:10px;color:rgba(255,255,255,.4);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+.dph-score-rank{font-size:12px;color:#A78BFA;font-weight:600;margin-top:4px}
+.dash-period{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
+.dash-period h2{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.period-tabs{display:flex;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius-xs);padding:3px;gap:2px}
+.ptab{font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;border:none;background:transparent;color:var(--ink-ghost);font-family:inherit;font-weight:600;transition:all .15s}
+.ptab.active{background:var(--violet);color:#fff}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:1.2rem}
+.dstat{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem 1.15rem;transition:box-shadow .2s,transform .2s}
+.dstat:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.dstat-label{font-size:11px;font-weight:700;color:var(--ink-ghost);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.dstat-val{font-family:'Space Grotesk',sans-serif;font-size:1.65rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+.dstat-delta{font-size:12px;font-weight:600;display:flex;align-items:center;gap:3px}
+.delta-up{color:#0F6E56}.delta-dn{color:#A32D2D}.delta-neu{color:var(--ink-ghost)}
+.dash-charts{display:grid;grid-template-columns:2fr 1fr;gap:11px;margin-bottom:1.2rem}
+.dcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:1.2rem}
+.dcard-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between}
+.dcard-title span{font-size:11px;color:var(--ink-ghost);font-weight:600}
+.chart-area{position:relative;width:100%;height:155px}
+.dash-posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:1.2rem}
+.post-card{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:1rem;transition:transform .2s,box-shadow .2s;cursor:default}
+.post-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.post-card-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-ghost);margin-bottom:7px;display:flex;align-items:center;gap:4px}
+.post-card-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.4}
+.post-card-stats{display:flex;gap:10px;flex-wrap:wrap}
+.pcstat strong{display:block;font-size:14px;color:var(--ink);font-weight:700;font-family:'Space Grotesk',sans-serif}
+.pcstat span{font-size:11px;color:var(--ink-ghost);font-weight:600}
+.dash-bottom{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:1.2rem}
+.aud-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.aud-label{font-size:12px;color:var(--ink-soft);font-weight:600;width:50px;flex-shrink:0}
+.aud-track{flex:1;background:var(--canvas);border-radius:20px;height:7px;overflow:hidden}
+.aud-fill{height:100%;border-radius:20px;background:var(--violet);transition:width .6s}
+.aud-pct{font-size:12px;color:var(--ink-ghost);font-weight:700;width:32px;text-align:right;flex-shrink:0}
+.city-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-soft)}
+.city-row:last-child{border-bottom:none}
+.city-row span:last-child{font-weight:700;color:var(--ink)}
+.score-row-d{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.sr-label{font-size:12px;color:var(--ink-soft);font-weight:600;width:86px;flex-shrink:0}
+.sr-track{flex:1;background:var(--canvas);border-radius:20px;height:7px;overflow:hidden}
+.sr-fill{height:100%;border-radius:20px;transition:width .6s}
+.sr-val{font-size:12px;font-weight:700;color:var(--ink-ghost);width:26px;text-align:right}
+.dash-connect-ig{background:linear-gradient(110deg,#6A1FB5,#C13584,#E1306C);border-radius:var(--radius-sm);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem;color:#fff}
+.dash-connect-ig p{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.btn-ig-connect{background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:8px 18px;border-radius:var(--radius-xs);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .18s}
+.btn-ig-connect:hover{background:rgba(255,255,255,.28)}
+.dash-gate{text-align:center;padding:5rem 2rem}
+.dash-gate h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:.5rem}
+.dash-gate p{color:var(--ink-ghost);font-size:14px;margin-bottom:1.5rem}
+@media(max-width:900px){
+  .dash-stats{grid-template-columns:repeat(2,1fr)}
+  .dash-charts{grid-template-columns:1fr}
+  .dash-posts-grid{grid-template-columns:repeat(2,1fr)}
+  .dash-bottom{grid-template-columns:1fr}
+  .dph-score{display:none}
+}
+@media(max-width:540px){
+  .dash-stats{grid-template-columns:1fr 1fr}
+  .dash-posts-grid{grid-template-columns:1fr}
+}
+
 /* ── NAV ── */
 @media(max-width:880px){
   .nav-links{display:none}
@@ -723,7 +797,142 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
 
 </main>
 
-<!-- ═══ ONBOARDING OVERLAY — shown after Google OAuth for new users ═══ -->
+<!-- ═══════════════ PAGE 4 : CREATOR DASHBOARD ═══════════════ -->
+<div id="page-dashboard" class="page" hidden>
+<div class="dash-page">
+
+  <!-- Gate: shown to logged-out visitors -->
+  <div id="dash-gate" class="dash-gate" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" width="56" height="56"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    <h2>Sign in to see your dashboard</h2>
+    <p>Your Trendora creator dashboard is private. Sign in with Google to access your stats, score, and profile.</p>
+    <button class="nav-cta" onclick="location.hash='#/auth'">Sign in with Google</button>
+  </div>
+
+  <!-- Dashboard: shown to logged-in users -->
+  <div id="dash-main" style="display:none">
+
+    <!-- Profile header -->
+    <div class="dash-profile-header">
+      <div class="dph-avatar-wrap" id="dph-avatar">—</div>
+      <div class="dph-info">
+        <div class="dph-name" id="dph-name">—</div>
+        <div class="dph-handle" id="dph-handle">—</div>
+        <div class="dph-chips" id="dph-chips"></div>
+      </div>
+      <div class="dph-score">
+        <div class="dph-score-val" id="dph-score">74</div>
+        <div class="dph-score-lbl">Trendora Score</div>
+        <div class="dph-score-rank" id="dph-rank">#1 in domain</div>
+      </div>
+    </div>
+
+    <!-- Connect Instagram banner (always shown until connected) -->
+    <div class="dash-connect-ig">
+      <p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4Zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.8-11.1a1.5 1.5 0 1 0 1.5 1.5 1.5 1.5 0 0 0-1.5-1.5Z"/></svg>
+        Connect Instagram to pull live follower counts, reach and post insights into this dashboard.
+      </p>
+      <button class="btn-ig-connect" onclick="alert('Instagram OAuth coming soon — backend needed. See the earlier conversation for the setup guide.')">Connect Instagram →</button>
+    </div>
+
+    <!-- Period selector -->
+    <div class="dash-period">
+      <h2>Your analytics</h2>
+      <div class="period-tabs">
+        <button class="ptab" onclick="dashSetPeriod(7,this)">7d</button>
+        <button class="ptab active" id="default-period-tab" onclick="dashSetPeriod(30,this)">30d</button>
+        <button class="ptab" onclick="dashSetPeriod(90,this)">90d</button>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="dash-stats">
+      <div class="dstat">
+        <div class="dstat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Followers</div>
+        <div class="dstat-val" id="ds-followers">—</div>
+        <div class="dstat-delta delta-up" id="dd-followers">—</div>
+      </div>
+      <div class="dstat">
+        <div class="dstat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Reach</div>
+        <div class="dstat-val" id="ds-reach">—</div>
+        <div class="dstat-delta delta-up" id="dd-reach">—</div>
+      </div>
+      <div class="dstat">
+        <div class="dstat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Engagement</div>
+        <div class="dstat-val" id="ds-eng">—</div>
+        <div class="dstat-delta delta-up" id="dd-eng">—</div>
+      </div>
+      <div class="dstat">
+        <div class="dstat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Impressions</div>
+        <div class="dstat-val" id="ds-imp">—</div>
+        <div class="dstat-delta delta-dn" id="dd-imp">—</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="dash-charts">
+      <div class="dcard">
+        <div class="dcard-title">Follower growth <span id="chart-period-label">last 30 days</span></div>
+        <div class="chart-area"><canvas id="dash-growth-chart"></canvas></div>
+      </div>
+      <div class="dcard">
+        <div class="dcard-title">Trendora Score</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:.4rem 0 .8rem">
+          <div style="position:relative;width:90px;height:90px;flex-shrink:0">
+            <canvas id="dash-score-ring" width="90" height="90"></canvas>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--ink)" id="score-num">74</span>
+              <span style="font-size:10px;color:var(--ink-ghost)">/100</span>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div class="score-row-d">
+              <span class="sr-label">Reach</span>
+              <div class="sr-track"><div class="sr-fill" id="sr-reach" style="width:82%;background:var(--violet)"></div></div>
+              <span class="sr-val">82</span>
+            </div>
+            <div class="score-row-d">
+              <span class="sr-label">Activity</span>
+              <div class="sr-track"><div class="sr-fill" id="sr-activity" style="width:66%;background:#00C48C"></div></div>
+              <span class="sr-val">66</span>
+            </div>
+            <p style="font-size:11.5px;color:var(--ink-ghost);margin-top:.5rem" id="score-tip">Post more consistently to lift your activity score.</p>
+          </div>
+        </div>
+        <div class="dcard-title" style="margin-bottom:.6rem;margin-top:.2rem">Reach vs Impressions <span id="ri-period-label">30d</span></div>
+        <div class="chart-area" style="height:110px"><canvas id="dash-reach-chart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Top posts -->
+    <div class="dcard-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:.8rem">Top posts <span style="font-size:11px;color:var(--ink-ghost);font-weight:600" id="posts-period-label">this month</span></div>
+    <div class="dash-posts-grid" id="dash-posts-grid"></div>
+
+    <!-- Audience + cities -->
+    <div class="dash-bottom">
+      <div class="dcard">
+        <div class="dcard-title">Audience — age range</div>
+        <div id="aud-age-bars"></div>
+        <div class="dcard-title" style="margin-top:.8rem;margin-bottom:.6rem">Gender split</div>
+        <div style="display:flex;gap:1rem;align-items:center">
+          <div style="flex:1;background:var(--canvas);border-radius:20px;height:10px;overflow:hidden">
+            <div style="height:100%;background:var(--violet);border-radius:20px;width:58%"></div>
+          </div>
+          <span style="font-size:12px;color:var(--ink-soft);font-weight:600;white-space:nowrap">58% Female · 42% Male</span>
+        </div>
+      </div>
+      <div class="dcard">
+        <div class="dcard-title">Top cities</div>
+        <div id="dash-cities"></div>
+      </div>
+    </div>
+
+  </div><!-- /dash-main -->
+</div><!-- /dash-page -->
+</div><!-- /page-dashboard -->
+
+ — shown after Google OAuth for new users ═══ -->
 <div class="onboard-overlay" id="onboard-overlay" role="dialog" aria-modal="true" aria-labelledby="onboard-title">
   <div class="onboard-box">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem">
@@ -1327,7 +1536,9 @@ function showPage(name){
   document.getElementById('page-home').hidden      = (name !== 'home');
   document.getElementById('page-directory').hidden = (name !== 'directory');
   document.getElementById('page-auth').hidden      = (name !== 'auth');
+  document.getElementById('page-dashboard').hidden = (name !== 'dashboard');
   window.scrollTo(0,0);
+  if (name === 'dashboard') renderDashboard();
 }
 
 function parseHash(){
@@ -1353,6 +1564,8 @@ function router(){
     const box = document.getElementById('globalSearch');
     if(q && box){ box.value = q; currentDomain = currentDomain||'all'; render(getCreators(currentDomain)); handleSearch(q); }
     else { render(getCreators(currentDomain)); }
+  } else if(path.startsWith('/dashboard')){
+    showPage('dashboard');
   } else if(path.startsWith('/auth')){
     showPage('auth');
     const mode = params.get('mode');
@@ -1385,23 +1598,23 @@ sb.auth.onAuthStateChange(async (event, session) => {
   if (currentUser) {
     await loadProfile();
     updateNav();
-    // If we just came back from Google OAuth and have no profile yet → show onboarding
-    if (!userProfile && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
-      showOnboarding();
-    } else {
-      // New user from OAuth redirect — check if we stored a pending role
-      const pendingRole = sessionStorage.getItem('trendora_pending_role');
-      if (pendingRole && !userProfile) {
-        sessionStorage.removeItem('trendora_pending_role');
-        showOnboarding();
-      }
-    }
-    // If they were on the auth page and are now signed in, redirect home
+    // Re-render dashboard if the user is already on that page
     const { path } = parseHash();
+    if (path.startsWith('/dashboard')) {
+      renderDashboard();
+    }
+    // Show onboarding for brand-new signups with no profile yet
+    if (!userProfile && event === 'SIGNED_IN') {
+      showOnboarding();
+    }
+    // After OAuth redirect, send them home (not back to /auth)
     if (path.startsWith('/auth')) location.hash = '#/';
   } else {
     userProfile = null;
     updateNav();
+    // If they just signed out while on dashboard, show the gate
+    const { path } = parseHash();
+    if (path.startsWith('/dashboard')) renderDashboard();
   }
 });
 
@@ -1432,6 +1645,7 @@ function updateNav() {
         <div class="nav-user-menu">
           <a onclick="location.hash='#/'">Home</a>
           <a onclick="location.hash='#/directory'">Browse Creators</a>
+          <a onclick="location.hash='#/dashboard'" style="color:var(--violet)">My Dashboard</a>
           <a class="sign-out" onclick="signOut()">Sign out</a>
         </div>
       </div>`;
@@ -1627,11 +1841,195 @@ function submitCreator(){ signInWithGoogle(); }
 function submitBrand(){ signInWithGoogle(); }
 function submitSignIn(){ signInWithGoogle(); }
 
+/* ════════════ DASHBOARD JS ════════════ */
+let dashPeriod = 30;
+let dashGrowthChart, dashReachChart;
+
+// Sample data — replaced by real Instagram API data once connected
+const DASH_DATA = {
+  7:  { followers:'89.4K', dF:'+1.2K ↑ this week',   reach:'124K', dR:'+18% vs prev', eng:'6.8%', dE:'+0.4pp ↑', imp:'312K',  dI:'-3% vs prev',  posts:[{type:'Reel',title:'Marathon training plan',reach:'34K',likes:'4.2K',saves:'890'},{type:'Carousel',title:'5 nutrition myths busted',reach:'28K',likes:'3.1K',saves:'740'},{type:'Reel',title:'5K race prep routine',reach:'21K',likes:'2.8K',saves:'610'}] },
+  30: { followers:'89.4K', dF:'+4.8K ↑ this month',  reach:'486K', dR:'+22% vs prev', eng:'6.8%', dE:'+0.9pp ↑', imp:'1.2M',  dI:'-6% vs prev',  posts:[{type:'Reel',title:'Marathon training plan',reach:'91K',likes:'11.2K',saves:'2.3K'},{type:'Carousel',title:'5 nutrition myths busted',reach:'74K',likes:'8.4K',saves:'1.9K'},{type:'Reel',title:'5K race prep routine',reach:'62K',likes:'7.1K',saves:'1.6K'}] },
+  90: { followers:'89.4K', dF:'+11.2K ↑ in 90 days', reach:'1.4M', dR:'+31% vs prev', eng:'6.8%', dE:'+1.2pp ↑', imp:'3.6M',  dI:'-2% vs prev',  posts:[{type:'Reel',title:'Marathon training plan',reach:'260K',likes:'32K',saves:'6.8K'},{type:'Carousel',title:'5 nutrition myths busted',reach:'210K',likes:'24K',saves:'5.4K'},{type:'Reel',title:'5K race prep routine',reach:'187K',likes:'20K',saves:'4.9K'}] },
+};
+const AGE_GROUPS = [['18–24',38],['25–34',44],['35–44',12],['45+',6]];
+const CITIES = [['Mumbai','22%'],['Delhi','18%'],['Bengaluru','14%'],['Hyderabad','9%'],['Pune','7%'],['Others','30%']];
+
+function fmtN(n){ n=+n; if(n>=1e7) return (n/1e7).toFixed(1)+'Cr'; if(n>=1e6) return (n/1e6).toFixed(1)+'M'; if(n>=1e3) return (n/1e3).toFixed(0)+'K'; return ''+n; }
+
+function renderDashboard(){
+  const gate   = document.getElementById('dash-gate');
+  const main   = document.getElementById('dash-main');
+  if(!gate || !main) return;
+
+  if(!currentUser){
+    gate.style.display = ''; main.style.display = 'none'; return;
+  }
+  gate.style.display = 'none'; main.style.display = '';
+
+  // Profile header
+  const name   = currentUser.user_metadata?.full_name || currentUser.email?.split('@')[0] || 'Creator';
+  const avatar = currentUser.user_metadata?.avatar_url;
+  const ig     = userProfile?.ig_handle || '';
+  const role   = userProfile?.role || 'creator';
+  const domains= userProfile?.domains || [];
+
+  const avEl = document.getElementById('dph-avatar');
+  if(avEl){ avEl.innerHTML = avatar ? `<img src="${avatar}" alt="${name}" referrerpolicy="no-referrer">` : name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase(); }
+  const nameEl = document.getElementById('dph-name'); if(nameEl) nameEl.textContent = name;
+  const handleEl = document.getElementById('dph-handle'); if(handleEl) handleEl.textContent = ig || currentUser.email;
+  const chipsEl = document.getElementById('dph-chips');
+  if(chipsEl) chipsEl.innerHTML =
+    `<span class="dph-chip dph-role-chip">${role === 'creator' ? '🎬 Creator' : '🏢 Brand'}</span>` +
+    domains.slice(0,3).map(d=>`<span class="dph-chip">${d}</span>`).join('');
+
+  // Stats + charts
+  dashUpdateStats();
+  dashDrawCharts();
+  dashDrawScore();
+  dashRenderPosts();
+  dashRenderAudience();
+}
+
+function dashSetPeriod(p, btn){
+  dashPeriod = p;
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const labels = {7:'last 7 days', 30:'last 30 days', 90:'last 90 days'};
+  const slabels = {7:'7d', 30:'30d', 90:'90d'};
+  const plabels = {7:'this week', 30:'this month', 90:'last 3 months'};
+  const cl = document.getElementById('chart-period-label'); if(cl) cl.textContent = labels[p];
+  const rl = document.getElementById('ri-period-label');    if(rl) rl.textContent = slabels[p];
+  const pl = document.getElementById('posts-period-label'); if(pl) pl.textContent = plabels[p];
+  dashUpdateStats();
+  dashDrawCharts();
+  dashRenderPosts();
+}
+
+function dashUpdateStats(){
+  const d = DASH_DATA[dashPeriod];
+  [['ds-followers','dd-followers','followers','dF'],
+   ['ds-reach','dd-reach','reach','dR'],
+   ['ds-eng','dd-eng','eng','dE'],
+   ['ds-imp','dd-imp','imp','dI']].forEach(([vid,did,key,delta])=>{
+    const v=document.getElementById(vid), dd=document.getElementById(did);
+    if(v) v.textContent = d[key];
+    if(dd){ dd.textContent = d[delta]; dd.className='dstat-delta '+(d[delta].includes('↑')?'delta-up':'delta-dn'); }
+  });
+}
+
+function dashDrawCharts(){
+  // Guard: Chart.js must be loaded
+  if(typeof Chart === 'undefined'){ setTimeout(dashDrawCharts, 400); return; }
+  const isDark = ()=>false; // site is light-mode by default
+  const tcol = 'rgba(0,0,0,0.4)', gcol = 'rgba(0,0,0,0.06)';
+  const baseOpts = {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>fmtN(ctx.raw)}}},
+    scales:{
+      x:{ticks:{font:{size:10},color:tcol,maxRotation:0,maxTicksLimit:7},grid:{color:gcol}},
+      y:{ticks:{font:{size:10},color:tcol,callback:v=>fmtN(v)},grid:{color:gcol}}
+    }
+  };
+  const pts  = dashPeriod<=7?8:dashPeriod<=30?11:13;
+  const step = dashPeriod<=7?1:dashPeriod<=30?3:7;
+  const labels = Array.from({length:pts},(_,i)=>{ const d=dashPeriod-i*step; return d===0?'Today':`${d}d ago`; }).reverse();
+  const base=84600, end=89400;
+  const growth = labels.map((_,i)=>Math.round(base+(end-base)*(i/(pts-1))+(Math.random()-.4)*280));
+  const peak = dashPeriod===7?19000:dashPeriod===30?17000:15000;
+  const reach  = labels.map(()=>Math.round(peak*(.6+Math.random()*.4)));
+  const imps   = labels.map(()=>Math.round(peak*(1.3+Math.random()*.5)));
+
+  if(dashGrowthChart) dashGrowthChart.destroy();
+  if(dashReachChart)  dashReachChart.destroy();
+
+  const gc = document.getElementById('dash-growth-chart');
+  if(gc) dashGrowthChart = new Chart(gc,{type:'line',
+    data:{labels,datasets:[{data:growth,borderColor:'#7C3AED',borderWidth:2,pointRadius:0,fill:true,backgroundColor:'rgba(124,58,237,0.07)',tension:.38}]},
+    options:baseOpts});
+
+  const rc = document.getElementById('dash-reach-chart');
+  if(rc) dashReachChart = new Chart(rc,{type:'bar',
+    data:{labels,datasets:[
+      {label:'Impressions',data:imps, backgroundColor:'rgba(124,58,237,0.15)',borderRadius:2},
+      {label:'Reach',      data:reach,backgroundColor:'rgba(124,58,237,0.55)',borderRadius:2}]},
+    options:{...baseOpts,scales:{...baseOpts.scales,x:{...baseOpts.scales.x,stacked:false},y:{...baseOpts.scales.y,stacked:false}}}});
+}
+
+function dashDrawScore(){
+  const canvas = document.getElementById('dash-score-ring');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d'), cx=45,cy=45,r=36,lw=7;
+  ctx.clearRect(0,0,90,90);
+  // track
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,Math.PI*2-Math.PI/2);
+  ctx.strokeStyle='rgba(0,0,0,0.07)'; ctx.lineWidth=lw; ctx.stroke();
+  // reach ring (violet, outer)
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,(82/100)*Math.PI*2-Math.PI/2);
+  ctx.strokeStyle='#7C3AED'; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+  // activity ring (green, inner)
+  ctx.beginPath(); ctx.arc(cx,cy,r-lw-2,-Math.PI/2,(66/100)*Math.PI*2-Math.PI/2);
+  ctx.strokeStyle='#00C48C'; ctx.lineWidth=5; ctx.lineCap='round'; ctx.stroke();
+}
+
+function dashRenderPosts(){
+  const grid = document.getElementById('dash-posts-grid');
+  if(!grid) return;
+  const posts = DASH_DATA[dashPeriod].posts;
+  const icons = { Reel:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14"/><rect x="2" y="6" width="13" height="12" rx="3"/></svg>', Carousel:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>', Photo:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>' };
+  grid.innerHTML = posts.map((p,i)=>`
+    <div class="post-card">
+      <div class="post-card-type">${icons[p.type]||''}${p.type} · #${i+1} this period</div>
+      <div class="post-card-title">${p.title}</div>
+      <div class="post-card-stats">
+        <div class="pcstat"><strong>${p.reach}</strong><span>Reach</span></div>
+        <div class="pcstat"><strong>${p.likes}</strong><span>Likes</span></div>
+        <div class="pcstat"><strong>${p.saves}</strong><span>Saves</span></div>
+      </div>
+    </div>`).join('');
+}
+
+function dashRenderAudience(){
+  const ageBars = document.getElementById('aud-age-bars');
+  if(ageBars) ageBars.innerHTML = AGE_GROUPS.map(([lbl,pct])=>`
+    <div class="aud-bar-row">
+      <span class="aud-label">${lbl}</span>
+      <div class="aud-track"><div class="aud-fill" style="width:${pct}%"></div></div>
+      <span class="aud-pct">${pct}%</span>
+    </div>`).join('');
+  const cities = document.getElementById('dash-cities');
+  if(cities) cities.innerHTML = CITIES.map(([city,pct])=>`
+    <div class="city-row"><span>${city}</span><span>${pct}</span></div>`).join('');
+}
+
+// Reload Chart.js if not already loaded (dashboard loads lazily)
+if(typeof Chart === 'undefined'){
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
+  s.onload=()=>{ if(document.getElementById('dash-growth-chart') && currentUser) dashDrawCharts(); };
+  document.head.appendChild(s);
+}
+
 // Init auth page on load
 renderLeftPanel('default');
 
 window.addEventListener('hashchange', router);
-router();   // initial route
+
+// ── KEY FIX: restore existing session BEFORE running router ──
+// Without this, router() runs while currentUser is still null,
+// so the dashboard gate always shows even when the user is signed in.
+(async () => {
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session?.user) {
+      currentUser = session.user;
+      await loadProfile();
+      updateNav();
+    }
+  } catch(e) {
+    // getSession failed (offline etc.) — router will handle gate
+  }
+  router();   // now run router with session already restored
+})();
 </script>
 </body>
 </html>
