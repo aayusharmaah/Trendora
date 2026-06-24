@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -232,6 +233,29 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
 
 .nav-sign-in{background:transparent;color:var(--ink-soft);border:1.5px solid var(--line-strong);padding:9px 18px;border-radius:var(--radius-xs);font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
 .nav-sign-in:hover{border-color:var(--violet);color:var(--violet)}
+/* Nav user avatar (shown when logged in) */
+.nav-user{display:flex;align-items:center;gap:9px;cursor:pointer;position:relative}
+.nav-avatar{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--violet-light);background:var(--violet-light);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--violet);flex-shrink:0}
+.nav-user-name{font-size:14px;font-weight:600;color:var(--ink)}
+.nav-user-menu{position:absolute;top:calc(100% + 10px);right:0;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:6px;min-width:180px;box-shadow:var(--shadow);z-index:200;display:none}
+.nav-user:hover .nav-user-menu{display:block}
+.nav-user-menu a{display:block;padding:9px 12px;font-size:13px;color:var(--ink-soft);font-weight:600;border-radius:var(--radius-xs);cursor:pointer;transition:background .15s}
+.nav-user-menu a:hover{background:var(--canvas)}
+.nav-user-menu .sign-out{color:#C0130E}
+/* Google OAuth button */
+.btn-google{width:100%;display:flex;align-items:center;justify-content:center;gap:11px;padding:13px;background:var(--surface);border:1.5px solid var(--line-strong);border-radius:var(--radius-xs);font-size:14.5px;font-weight:600;font-family:inherit;color:var(--ink);cursor:pointer;transition:all .2s;margin-bottom:.6rem}
+.btn-google:hover{border-color:var(--violet);background:var(--violet-xlight)}
+.btn-google svg{flex-shrink:0}
+/* Loading spinner */
+.auth-loading{text-align:center;padding:2rem}
+.spinner{width:36px;height:36px;border:3px solid var(--line-strong);border-top-color:var(--violet);border-radius:50%;animation:spin-anim .7s linear infinite;margin:0 auto 1rem}
+@keyframes spin-anim{to{transform:rotate(360deg)}}
+/* Onboarding overlay after OAuth */
+.onboard-overlay{position:fixed;inset:0;background:rgba(13,11,30,.7);backdrop-filter:blur(6px);z-index:500;display:none;align-items:center;justify-content:center}
+.onboard-overlay.show{display:flex}
+.onboard-box{background:var(--surface);border-radius:var(--radius);padding:clamp(1.5rem,4vw,2.5rem);width:100%;max-width:480px;max-height:92vh;overflow-y:auto;margin:1rem}
+.onboard-box h2{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.025em;margin-bottom:.3rem}
+.onboard-box p{color:var(--ink-ghost);font-size:13px;margin-bottom:1.5rem}
 
 /* ════ AUTH PAGE #/auth ════ */
 .auth-page{min-height:calc(100vh - 66px);display:grid;grid-template-columns:1fr 1fr}
@@ -343,7 +367,8 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
       <a href="#/#how">How it works</a>
       <a href="#/auth?role=creator" style="color:var(--violet);font-weight:700">For Creators</a>
     </div>
-    <div style="display:flex;gap:8px;align-items:center">
+    <div id="nav-auth-area" style="display:flex;gap:8px;align-items:center">
+      <!-- Injected by JS: sign-in buttons OR user avatar depending on session -->
       <button class="nav-sign-in" onclick="location.hash='#/auth?mode=signin'">Sign in</button>
       <button class="nav-cta" onclick="location.hash='#/auth'">Join Trendora</button>
     </div>
@@ -563,7 +588,7 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
               </div>
             </div>
           </div>
-          <button class="f-submit" onclick="proceedWithRole()">Continue →</button>
+          <button class="f-submit" onclick="proceedWithRole()">Continue with Google →</button>
           <div class="f-switch">Already have an account? <a onclick="authMode('signin')">Sign in</a></div>
         </div>
 
@@ -679,15 +704,16 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
         </div>
       </div>
 
-      <!-- SIGN IN FORM -->
+      <!-- SIGN IN / SIGN UP with Google -->
       <div id="form-signin" style="display:none">
         <div class="auth-form-title">Welcome back</div>
-        <div class="auth-form-sub">Sign in to your Trendora account.</div>
-        <div class="f-group"><label class="f-label">Email</label><input class="f-input" type="email" placeholder="you@email.com" id="si-email"></div>
-        <div class="f-group"><label class="f-label">Password</label><input class="f-input" type="password" placeholder="Your password" id="si-pass"></div>
-        <button class="f-submit" onclick="submitSignIn()">Sign in →</button>
-        <div class="f-divider">or</div>
-        <div class="f-switch">Don't have an account? <a onclick="authMode('signup')">Join Trendora</a></div>
+        <div class="auth-form-sub">Sign in to your Trendora account with Google.</div>
+        <button class="btn-google" onclick="signInWithGoogle()">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Continue with Google
+        </button>
+        <div class="f-divider">new to trendora?</div>
+        <div class="f-switch">Create your account <a onclick="authMode('signup')">by signing up →</a></div>
       </div>
 
     </div>
@@ -696,6 +722,116 @@ footer{background:var(--ink);padding:2.8rem clamp(1rem,4vw,2.5rem)}
 </div><!-- /page-auth -->
 
 </main>
+
+<!-- ═══ ONBOARDING OVERLAY — shown after Google OAuth for new users ═══ -->
+<div class="onboard-overlay" id="onboard-overlay" role="dialog" aria-modal="true" aria-labelledby="onboard-title">
+  <div class="onboard-box">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem">
+      <svg width="28" height="28" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="10" fill="#7C3AED"/><rect x="16" y="14" width="4" height="14" rx="2" fill="white"/><path d="M8 20 L14 13 L22 17 L28 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 9 L28 9 L28 13" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink)">Trendora</span>
+    </div>
+    <h2 id="onboard-title">One last thing</h2>
+    <p>Tell us who you are so we can set up the right experience for you.</p>
+
+    <!-- Step 1: role pick -->
+    <div id="ob-step1">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:1.4rem">
+        <div class="role-card" id="ob-pick-creator" onclick="obPickRole('creator')" style="border:1.5px solid var(--line-strong);background:var(--surface)">
+          <div class="role-icon" style="background:#EDE9FE">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14"/><rect x="2" y="6" width="13" height="12" rx="3"/></svg>
+          </div>
+          <div class="role-card-text">
+            <strong style="color:var(--ink)">I'm a Content Creator</strong>
+            <span style="color:var(--ink-ghost)">Get discovered by brands, track growth, manage collabs</span>
+          </div>
+        </div>
+        <div class="role-card" id="ob-pick-brand" onclick="obPickRole('brand')" style="border:1.5px solid var(--line-strong);background:var(--surface)">
+          <div class="role-icon" style="background:#FEF3C7">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          </div>
+          <div class="role-card-text">
+            <strong style="color:var(--ink)">I represent a Brand</strong>
+            <span style="color:var(--ink-ghost)">Discover creators, run campaigns, grow your reach</span>
+          </div>
+        </div>
+      </div>
+      <button class="f-submit" onclick="obNext()">Continue →</button>
+    </div>
+
+    <!-- Step 2a: creator details -->
+    <div id="ob-step2-creator" style="display:none">
+      <div class="f-group"><label class="f-label">Your primary Instagram handle</label><input class="f-input" type="text" placeholder="@yourhandle" id="ob-ig"></div>
+      <div class="f-group"><label class="f-label">YouTube channel (optional)</label><input class="f-input" type="text" placeholder="@yourchannel" id="ob-yt"></div>
+      <div class="f-group">
+        <label class="f-label">Content domain</label>
+        <div class="f-domain-grid" id="ob-c-domains">
+          <span class="f-domain-chip" onclick="toggleChip(this)">Finance</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Tech</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Fashion</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Food</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Gaming</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Fitness</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Travel</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Other</span>
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label">What are you looking for?</label>
+        <div class="f-goal-grid" id="ob-c-goals">
+          <span class="f-goal" onclick="toggleChip(this)">Brand Collabs</span>
+          <span class="f-goal" onclick="toggleChip(this)">Increase Visibility</span>
+          <span class="f-goal" onclick="toggleChip(this)">Track Performance</span>
+          <span class="f-goal" onclick="toggleChip(this)">Monetise Content</span>
+          <span class="f-goal" onclick="toggleChip(this)">Build Network</span>
+          <span class="f-goal" onclick="toggleChip(this)">Get Ranked</span>
+        </div>
+      </div>
+      <button class="f-submit" onclick="obSaveCreator()">Complete my profile →</button>
+      <div class="f-switch" style="margin-top:.8rem"><a onclick="obBack()" style="color:var(--ink-ghost);cursor:pointer">← Back</a></div>
+    </div>
+
+    <!-- Step 2b: brand details -->
+    <div id="ob-step2-brand" style="display:none">
+      <div class="f-group"><label class="f-label">Brand / Company name</label><input class="f-input" type="text" placeholder="Acme Pvt. Ltd." id="ob-brand"></div>
+      <div class="f-group">
+        <label class="f-label">Industry</label>
+        <select class="f-input f-select" id="ob-industry">
+          <option value="" disabled selected>Select your industry</option>
+          <option>D2C / E-commerce</option><option>FMCG / Consumer Goods</option>
+          <option>FinTech / BFSI</option><option>EdTech / E-Learning</option>
+          <option>Health &amp; Wellness</option><option>Fashion &amp; Apparel</option>
+          <option>Food &amp; Beverage</option><option>Travel &amp; Hospitality</option>
+          <option>SaaS / Technology</option><option>Real Estate</option>
+          <option>Automotive</option><option>Media &amp; Entertainment</option><option>Other</option>
+        </select>
+      </div>
+      <div class="f-group"><label class="f-label">Website (optional)</label><input class="f-input" type="url" placeholder="https://yourbrand.com" id="ob-website"></div>
+      <div class="f-group">
+        <label class="f-label">Domains you want to target</label>
+        <div class="f-domain-grid" id="ob-b-domains">
+          <span class="f-domain-chip" onclick="toggleChip(this)">Finance</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Tech</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Fashion</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Food</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Gaming</span>
+          <span class="f-domain-chip" onclick="toggleChip(this)">Fitness</span>
+        </div>
+      </div>
+      <button class="f-submit" onclick="obSaveBrand()">Complete account setup →</button>
+      <div class="f-switch" style="margin-top:.8rem"><a onclick="obBack()" style="color:var(--ink-ghost);cursor:pointer">← Back</a></div>
+    </div>
+
+    <!-- Step 3: done -->
+    <div id="ob-step3" style="display:none">
+      <div class="auth-success">
+        <div class="auth-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3 id="ob-success-title">You're in!</h3>
+        <p id="ob-success-msg">Your Trendora profile is live. Welcome to India's creator intelligence platform.</p>
+        <button class="auth-success-cta" onclick="closeOnboard()">Go to Trendora →</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer id="about">
   <div class="footer-inner">
@@ -1234,7 +1370,187 @@ function router(){
 function goSearch(value){ const q=(value||'').trim(); location.hash='#/directory'+(q?('?q='+encodeURIComponent(q)):''); }
 function goDomain(d){ location.hash='#/directory?d='+encodeURIComponent(d); }
 
-/* ════════════ AUTH LOGIC ════════════ */
+/* ════════════ SUPABASE INIT ════════════ */
+const SUPABASE_URL  = 'https://cwdkgzscuztuugmrxagh.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN3ZGtnenNjdXp0dXVnbXJ4YWdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNjU2ODQsImV4cCI6MjA5Nzg0MTY4NH0.5sTzmRcGD3H1O0xz0q01oE21ftsca2Z6luc3G1DGjz8';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+/* ════════════ AUTH STATE ════════════ */
+let currentUser = null;   // supabase user object
+let userProfile = null;   // row from public.profiles
+
+// Called once on load and whenever auth state changes
+sb.auth.onAuthStateChange(async (event, session) => {
+  currentUser = session?.user ?? null;
+  if (currentUser) {
+    await loadProfile();
+    updateNav();
+    // If we just came back from Google OAuth and have no profile yet → show onboarding
+    if (!userProfile && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+      showOnboarding();
+    } else {
+      // New user from OAuth redirect — check if we stored a pending role
+      const pendingRole = sessionStorage.getItem('trendora_pending_role');
+      if (pendingRole && !userProfile) {
+        sessionStorage.removeItem('trendora_pending_role');
+        showOnboarding();
+      }
+    }
+    // If they were on the auth page and are now signed in, redirect home
+    const { path } = parseHash();
+    if (path.startsWith('/auth')) location.hash = '#/';
+  } else {
+    userProfile = null;
+    updateNav();
+  }
+});
+
+async function loadProfile() {
+  if (!currentUser) return;
+  const { data, error } = await sb
+    .from('profiles')
+    .select('*')
+    .eq('id', currentUser.id)
+    .single();
+  userProfile = error ? null : data;
+}
+
+/* ════════════ NAV UPDATE ════════════ */
+function updateNav() {
+  const area = document.getElementById('nav-auth-area');
+  if (!area) return;
+  if (currentUser) {
+    const name = currentUser.user_metadata?.full_name || currentUser.email?.split('@')[0] || 'You';
+    const avatar = currentUser.user_metadata?.avatar_url;
+    const initials = name.split(' ').slice(0,2).map(n=>n[0]).join('').toUpperCase();
+    area.innerHTML = `
+      <div class="nav-user" tabindex="0" role="button" aria-label="Account menu">
+        ${avatar
+          ? `<img class="nav-avatar" src="${avatar}" alt="${name}" referrerpolicy="no-referrer">`
+          : `<div class="nav-avatar">${initials}</div>`}
+        <span class="nav-user-name">${name.split(' ')[0]}</span>
+        <div class="nav-user-menu">
+          <a onclick="location.hash='#/'">Home</a>
+          <a onclick="location.hash='#/directory'">Browse Creators</a>
+          <a class="sign-out" onclick="signOut()">Sign out</a>
+        </div>
+      </div>`;
+  } else {
+    area.innerHTML = `
+      <button class="nav-sign-in" onclick="location.hash='#/auth?mode=signin'">Sign in</button>
+      <button class="nav-cta" onclick="location.hash='#/auth'">Join Trendora</button>`;
+  }
+}
+
+/* ════════════ GOOGLE OAUTH ════════════ */
+async function signInWithGoogle() {
+  // Store pending role before redirecting
+  if (selectedRole) sessionStorage.setItem('trendora_pending_role', selectedRole);
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: window.location.origin + window.location.pathname,
+      queryParams: { access_type: 'offline', prompt: 'consent' }
+    }
+  });
+  if (error) showAuthError('Google sign-in failed: ' + error.message);
+}
+
+async function signOut() {
+  await sb.auth.signOut();
+  currentUser = null;
+  userProfile = null;
+  updateNav();
+  location.hash = '#/';
+}
+
+function showAuthError(msg) {
+  const el = document.getElementById('auth-error');
+  if (el) { el.textContent = msg; el.style.display = 'block'; }
+  else alert(msg);
+}
+
+/* ════════════ ONBOARDING (post-OAuth profile setup) ════════════ */
+let obRole = null;
+
+function showOnboarding() {
+  document.getElementById('onboard-overlay').classList.add('show');
+  document.getElementById('ob-step1').style.display = '';
+  document.getElementById('ob-step2-creator').style.display = 'none';
+  document.getElementById('ob-step2-brand').style.display = 'none';
+  document.getElementById('ob-step3').style.display = 'none';
+  // Pre-select role if they chose one before OAuth
+  const pending = sessionStorage.getItem('trendora_pending_role');
+  if (pending) { obPickRole(pending); sessionStorage.removeItem('trendora_pending_role'); }
+}
+
+function closeOnboard() {
+  document.getElementById('onboard-overlay').classList.remove('show');
+}
+
+function obPickRole(role) {
+  obRole = role;
+  document.getElementById('ob-pick-creator').classList.toggle('selected', role==='creator');
+  document.getElementById('ob-pick-brand').classList.toggle('selected', role==='brand');
+}
+
+function obNext() {
+  if (!obRole) { alert('Please choose Creator or Brand.'); return; }
+  document.getElementById('ob-step1').style.display = 'none';
+  document.getElementById('ob-step2-creator').style.display = obRole==='creator' ? '' : 'none';
+  document.getElementById('ob-step2-brand').style.display   = obRole==='brand'   ? '' : 'none';
+}
+
+function obBack() {
+  document.getElementById('ob-step1').style.display = '';
+  document.getElementById('ob-step2-creator').style.display = 'none';
+  document.getElementById('ob-step2-brand').style.display   = 'none';
+}
+
+async function obSaveCreator() {
+  if (!currentUser) return;
+  const ig = document.getElementById('ob-ig').value.trim();
+  const domains = [...document.querySelectorAll('#ob-c-domains .on')].map(e=>e.textContent);
+  const goals   = [...document.querySelectorAll('#ob-c-goals .on')].map(e=>e.textContent);
+  const { error } = await sb.from('profiles').upsert({
+    id: currentUser.id,
+    role: 'creator',
+    full_name: currentUser.user_metadata?.full_name || '',
+    ig_handle: ig,
+    yt_handle: document.getElementById('ob-yt').value.trim(),
+    domains, goals
+  });
+  if (error) { showAuthError('Could not save profile: ' + error.message); return; }
+  userProfile = { role:'creator', ig_handle: ig, domains, goals };
+  document.getElementById('ob-step2-creator').style.display = 'none';
+  document.getElementById('ob-step3').style.display = '';
+  document.getElementById('ob-success-title').textContent = 'Creator profile created! 🎉';
+  document.getElementById('ob-success-msg').textContent = 'Welcome to Trendora. Your profile is live. Watch for brand collab requests in your dashboard soon.';
+}
+
+async function obSaveBrand() {
+  if (!currentUser) return;
+  const brand = document.getElementById('ob-brand').value.trim();
+  if (!brand) { alert('Please enter your brand name.'); return; }
+  const domains = [...document.querySelectorAll('#ob-b-domains .on')].map(e=>e.textContent);
+  const { error } = await sb.from('profiles').upsert({
+    id: currentUser.id,
+    role: 'brand',
+    full_name: currentUser.user_metadata?.full_name || '',
+    brand_name: brand,
+    industry: document.getElementById('ob-industry').value,
+    domains,
+    goals: []
+  });
+  if (error) { showAuthError('Could not save profile: ' + error.message); return; }
+  userProfile = { role:'brand', brand_name: brand, domains };
+  document.getElementById('ob-step2-brand').style.display = 'none';
+  document.getElementById('ob-step3').style.display = '';
+  document.getElementById('ob-success-title').textContent = 'Brand account ready! 🚀';
+  document.getElementById('ob-success-msg').textContent = 'Welcome to Trendora. Start browsing creators in the directory and connect with the right voices for your brand.';
+}
+
+/* ════════════ AUTH LOGIC (UI) ════════════ */
 const LEFT_CONTENT = {
   creator: {
     heading: 'Grow your creator\n<em>career in India.</em>',
@@ -1249,7 +1565,7 @@ const LEFT_CONTENT = {
   default: {
     heading: 'India\'s creator\n<em>intelligence platform.</em>',
     desc: 'Whether you\'re a creator wanting to grow, or a brand looking to connect — Trendora is where India\'s creator economy comes together.',
-    bullets: ['120+ ranked Indian content creators','6 professional domains covered','YouTube + Instagram in one directory','Verified profiles and live data','Free to explore, powerful to use'],
+    bullets: ['51 ranked Indian content creators','6 professional domains covered','YouTube + Instagram in one directory','Verified profiles and live data','Free to explore, powerful to use'],
   },
 };
 
@@ -1298,76 +1614,18 @@ function showRolePick(){
 
 function proceedWithRole(){
   if(!selectedRole){ alert('Please select Creator or Brand to continue.'); return; }
-  document.getElementById('signup-role-pick').style.display = 'none';
-  document.getElementById('signup-creator').style.display = selectedRole==='creator' ? '' : 'none';
-  document.getElementById('signup-brand').style.display   = selectedRole==='brand'   ? '' : 'none';
+  // Store role, then trigger Google OAuth
+  sessionStorage.setItem('trendora_pending_role', selectedRole);
+  signInWithGoogle();
 }
 
 function toggleChip(el){ el.classList.toggle('on'); }
 
-function showSuccess(role){
-  document.getElementById('signup-creator').style.display = 'none';
-  document.getElementById('signup-brand').style.display   = 'none';
-  document.getElementById('signup-role-pick').style.display = 'none';
-  document.getElementById('signup-success').style.display  = '';
-  if(role==='creator'){
-    document.getElementById('success-title').textContent = 'Creator profile created! 🎉';
-    document.getElementById('success-msg').textContent  = 'Welcome to Trendora. Your profile is under review and will be listed in the directory within 24 hours. Watch for brand collab requests in your dashboard.';
-  } else {
-    document.getElementById('success-title').textContent = 'Brand account ready! 🚀';
-    document.getElementById('success-msg').textContent  = 'Welcome to Trendora. Start browsing creators in the directory, or tell us about your first campaign and we\'ll match you with the right voices.';
-  }
-}
-
-function submitCreator(){
-  const email = document.getElementById('c-email').value.trim();
-  const name  = document.getElementById('c-fname').value.trim();
-  if(!name || !email){ alert('Please fill in your name and email.'); return; }
-  if(!email.includes('@')){ alert('Please enter a valid email.'); return; }
-  // Save to localStorage (placeholder for real API call)
-  const data = {
-    role:'creator', name, email,
-    ig: document.getElementById('c-ig').value.trim(),
-    yt: document.getElementById('c-yt').value.trim(),
-    domains: [...document.querySelectorAll('#c-domain-chips .on')].map(e=>e.textContent),
-    goals:   [...document.querySelectorAll('#c-goals .on')].map(e=>e.textContent),
-    ts: Date.now()
-  };
-  try{ localStorage.setItem('trendora_user', JSON.stringify(data)); }catch(e){}
-  showSuccess('creator');
-}
-
-function submitBrand(){
-  const email = document.getElementById('b-email').value.trim();
-  const brand = document.getElementById('b-brand').value.trim();
-  if(!brand || !email){ alert('Please fill in your brand name and email.'); return; }
-  if(!email.includes('@')){ alert('Please enter a valid work email.'); return; }
-  const data = {
-    role:'brand', brand, email,
-    fname: document.getElementById('b-fname').value.trim(),
-    industry: document.getElementById('b-industry').value,
-    website:  document.getElementById('b-website').value.trim(),
-    domains:  [...document.querySelectorAll('#b-domain-chips .on')].map(e=>e.textContent),
-    goals:    [...document.querySelectorAll('#b-goals .on')].map(e=>e.textContent),
-    ts: Date.now()
-  };
-  try{ localStorage.setItem('trendora_user', JSON.stringify(data)); }catch(e){}
-  showSuccess('brand');
-}
-
-function submitSignIn(){
-  const email = document.getElementById('si-email').value.trim();
-  const pass  = document.getElementById('si-pass').value;
-  if(!email || !pass){ alert('Please enter your email and password.'); return; }
-  // Placeholder — check localStorage mock
-  const saved = JSON.parse(localStorage.getItem('trendora_user')||'{}');
-  if(saved.email === email){
-    alert(`Welcome back, ${saved.name||saved.brand||''}! (Demo mode — real auth requires a backend)`);
-    location.hash = '#/';
-  } else {
-    alert('No account found with that email. Please sign up first.');
-  }
-}
+/* kept for HTML references — real success handled by onboarding overlay */
+function showSuccess(){}
+function submitCreator(){ signInWithGoogle(); }
+function submitBrand(){ signInWithGoogle(); }
+function submitSignIn(){ signInWithGoogle(); }
 
 // Init auth page on load
 renderLeftPanel('default');
